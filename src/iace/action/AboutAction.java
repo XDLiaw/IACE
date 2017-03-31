@@ -26,6 +26,7 @@ public class AboutAction extends BaseIaceAction {
 	private About about;
 	
 	public AboutAction() {
+		super.setEntityClass(About.class);
 		super.setTitle("關於");
 	}
 

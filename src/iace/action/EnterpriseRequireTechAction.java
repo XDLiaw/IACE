@@ -21,6 +21,7 @@ public class EnterpriseRequireTechAction extends BaseIaceAction {
 	private List<OptionDomain> optionDomainList;
 	
 	public EnterpriseRequireTechAction() {
+		super.setEntityClass(EnterpriseRequireTech.class);
 		super.setTitle("企業技術需求資料");
 	}
 	

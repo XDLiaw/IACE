@@ -98,6 +98,7 @@ public class EPaperAction extends BaseIaceAction {
 	private List<OptionCountry> optionCountryList;
 
 	public EPaperAction() {
+		super.setEntityClass(EPaper.class);
 		super.setTitle("電子報");
 	}
 

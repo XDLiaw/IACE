@@ -19,6 +19,7 @@ public class VideosAreaAction extends BaseIaceAction {
 	private VideosArea videosArea;
 	
 	public VideosAreaAction() {
+		super.setEntityClass(VideosArea.class);
 		super.setTitle("影音專區");
 	}
 	

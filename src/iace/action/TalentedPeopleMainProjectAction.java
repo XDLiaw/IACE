@@ -35,6 +35,7 @@ public class TalentedPeopleMainProjectAction extends BaseIaceAction {
 	private List<BaseOption> monthList;
 
 	public TalentedPeopleMainProjectAction() {
+		super.setEntityClass(TalentedPeopleMainProject.class);
 		super.setTitle("產學人才 > 主要產學合作計畫案例");
 	}
 

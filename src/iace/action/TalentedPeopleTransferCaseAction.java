@@ -34,6 +34,7 @@ public class TalentedPeopleTransferCaseAction extends BaseIaceAction {
 	private List<BaseOption> monthList;
 
 	public TalentedPeopleTransferCaseAction() {
+		super.setEntityClass(TalentedPeopleTransferCase.class);
 		super.setTitle("產學人才 > 成果移轉及授權案例");
 	}
 

@@ -26,6 +26,7 @@ public class RdFocusAction extends BaseIaceAction {
 	private List<BaseOption> fileTypeList = DbFile.getFileTypeList();
 	
 	public RdFocusAction() {
+		super.setEntityClass(RdFocus.class);
 		super.setTitle("研發焦點");
 	}
 	

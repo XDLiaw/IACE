@@ -67,6 +67,7 @@ public class PatentAction extends BaseIaceAction {
 	private InputStream downloadFileInputStream;
 
 	public PatentAction() {
+		super.setEntityClass(Patent.class);
 		super.setTitle("專利資料");
 	}
 

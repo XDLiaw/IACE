@@ -26,6 +26,7 @@ public class ActivityAction extends BaseIaceAction {
 	private List<BaseOption> fileTypeList = DbFile.getFileTypeList();
 	
 	public ActivityAction() {
+		super.setEntityClass(Activity.class);
 		super.setTitle("活動人培");
 	}
 

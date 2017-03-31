@@ -26,6 +26,7 @@ public class NewsAction extends BaseIaceAction {
 	private List<BaseOption> fileTypeList = DbFile.getFileTypeList();
 	
 	public NewsAction() {
+		super.setEntityClass(News.class);
 		super.setTitle("公告訊息");
 	}
 	

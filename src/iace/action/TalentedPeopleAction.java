@@ -65,6 +65,7 @@ public class TalentedPeopleAction extends BaseIaceAction {
 	private String scrollTo;
 
 	public TalentedPeopleAction() {
+		super.setEntityClass(TalentedPeople.class);
 		super.setTitle("產學合作人才資料");
 	}
 

@@ -47,6 +47,7 @@ public class EnterpriseNeedAction extends BaseIaceAction {
 	private InputStream reportInputStream;
 	
 	public EnterpriseNeedAction() {
+		super.setEntityClass(EnterpriseInfo.class);
 		super.setTitle("企業需求單");
 	}
 	

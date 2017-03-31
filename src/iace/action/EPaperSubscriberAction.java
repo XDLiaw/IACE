@@ -23,6 +23,7 @@ public class EPaperSubscriberAction extends BaseIaceAction {
 	private String captchaCode;
 	
 	public EPaperSubscriberAction() {
+		super.setEntityClass(EPaperSubscriber.class);
 		super.setTitle("電子報訂閱者");
 	}
 

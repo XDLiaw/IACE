@@ -29,6 +29,7 @@ public class IndustryInfoAction extends BaseIaceAction {
 	private String keyForSyncData;
 	
 	public IndustryInfoAction() {
+		super.setEntityClass(IndustryInfo.class);
 		super.setTitle("產業情報");
 	}
 

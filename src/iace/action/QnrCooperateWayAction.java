@@ -35,6 +35,7 @@ public class QnrCooperateWayAction extends BaseIaceAction {
 	private InputStream qrnExcelFileInputStream;
 	
 	public QnrCooperateWayAction() {
+		super.setEntityClass(QnrCooperateWay.class);
 		super.setTitle("精進大學產學合作發展機制調查問卷");
 	}
 

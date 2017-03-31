@@ -41,6 +41,7 @@ public class IncubationCenterAction extends BaseIaceAction {
 	private List<BaseOption> attributeList = IncubationCenter.getAttributeList();
 
 	public IncubationCenterAction() {
+		super.setEntityClass(IncubationCenter.class);
 		super.setTitle("育成中心");
 	}
 	

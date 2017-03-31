@@ -39,6 +39,7 @@ public class MemberAction extends BaseIaceAction {
 	private String captchaCode;
 
 	public MemberAction() {
+		super.setEntityClass(Member.class);
 		super.setTitle("會員");
 	}
 

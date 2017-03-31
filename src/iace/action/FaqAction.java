@@ -24,6 +24,7 @@ public class FaqAction extends BaseIaceAction {
 	private List<BaseOption> categoryList = Faq.getCategoryList();
 	
 	public FaqAction() {
+		super.setEntityClass(Faq.class);
 		super.setTitle("常問集");
 	}
 	

@@ -35,6 +35,7 @@ public class TalentedPeopleRdResultAction extends BaseIaceAction {
 	private List<OptionCountry> countryList;
 	
 	public TalentedPeopleRdResultAction() {
+		super.setEntityClass(TalentedPeopleRdResult.class);
 		super.setTitle("產學人才 > 重要研發成果");
 	}
 	

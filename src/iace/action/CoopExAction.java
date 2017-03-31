@@ -32,6 +32,7 @@ public class CoopExAction extends BaseIaceAction {
 	private InputStream downloadFileInputStream;
 
 	public CoopExAction() {
+		super.setEntityClass(CoopEx.class);
 		super.setTitle("產學合作案例");
 	}
 	

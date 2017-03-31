@@ -33,6 +33,9 @@ public class HttpRequestLog extends BaseEntity {
 	
 	private Member member;
 	
+	private String showDetailClassName;
+	private Long showDetailId;
+	
 	@Id
 	@Column(name = "ID", length = 19, unique = true, nullable = false, updatable = false)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_HTTP_REQUEST_LOG_ID")
@@ -121,6 +124,24 @@ public class HttpRequestLog extends BaseEntity {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+	
+	@Column(name="SHOW_DETAIL_CLASS_NAME")
+	public String getShowDetailClassName() {
+		return showDetailClassName;
+	}
+
+	public void setShowDetailClassName(String showDetailClassName) {
+		this.showDetailClassName = showDetailClassName;
+	}
+
+	@Column(name="SHOW_DETAIL_ID")
+	public Long getShowDetailId() {
+		return showDetailId;
+	}
+
+	public void setShowDetailId(Long showDetailId) {
+		this.showDetailId = showDetailId;
 	}
 
 	@Override

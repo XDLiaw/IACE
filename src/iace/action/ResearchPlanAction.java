@@ -62,6 +62,7 @@ public class ResearchPlanAction extends BaseIaceAction {
 	private InputStream downloadFileInputStream;
 	
 	public ResearchPlanAction() {
+		super.setEntityClass(ResearchPlan.class);
 		super.setTitle("研發成果");
 	}
 

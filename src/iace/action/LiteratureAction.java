@@ -29,6 +29,7 @@ public class LiteratureAction extends BaseIaceAction {
 	private BaseBatchImportResult<Literature> batchImportResult;
 	
 	public LiteratureAction() {
+		super.setEntityClass(Literature.class);
 		super.setTitle("文獻與法規政策");
 	}
 

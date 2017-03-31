@@ -24,6 +24,7 @@ public class ContactUsAction extends BaseIaceAction {
 	private String captchaCode;
 	
 	public ContactUsAction() {
+		super.setEntityClass(ContactUs.class);
 		super.setTitle("客服信箱");
 	}
 

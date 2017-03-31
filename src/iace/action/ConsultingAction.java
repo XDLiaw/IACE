@@ -49,6 +49,7 @@ public class ConsultingAction extends BaseIaceAction {
 	private String captchaCode;
 
 	public ConsultingAction() {
+		super.setEntityClass(Consulting.class);
 		super.setTitle("諮詢服務表");
 	}
 	

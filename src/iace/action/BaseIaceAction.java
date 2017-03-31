@@ -12,7 +12,7 @@ import iace.entity.sys.SysLog;
 import iace.entity.sys.SysUser;
 import iace.interceptor.SessionInterceptor;
 
-public class BaseIaceAction extends BaseAction implements SessionAware {
+public abstract class BaseIaceAction extends BaseAction implements SessionAware {
 
 	private static final long serialVersionUID = 1771742807180192593L;
 
@@ -27,6 +27,8 @@ public class BaseIaceAction extends BaseAction implements SessionAware {
 	private StackTraceElement[] exceptionStack;
 	
 	private SysLog sysLog = new SysLog();
+	
+	private Class<?> entityClass;
 	
 	private Long openedEpaperId;
 
@@ -166,6 +168,13 @@ public class BaseIaceAction extends BaseAction implements SessionAware {
 	public void setOpenedEpaperId(Long openedEpaperId) {
 		this.openedEpaperId = openedEpaperId;
 	}
-	
+
+	public Class<?> getEntityClass() {
+		return entityClass;
+	}
+
+	protected void setEntityClass(Class<?> entityClass) {
+		this.entityClass = entityClass;
+	}
 	
 }

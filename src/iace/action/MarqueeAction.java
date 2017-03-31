@@ -17,6 +17,7 @@ public class MarqueeAction extends BaseIaceAction {
 	private Marquee marquee;
 	
 	public MarqueeAction() {
+		super.setEntityClass(Marquee.class);
 		super.setTitle("首頁跑馬燈");
 	}
 
