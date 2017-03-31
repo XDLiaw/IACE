@@ -5,7 +5,6 @@ import java.io.File;
 import org.apache.commons.lang3.StringUtils;
 
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.BaseBatchImportResult;
 import iace.entity.literature.Literature;
 import iace.entity.literature.LiteratureSearchModel;
@@ -58,7 +57,6 @@ public class LiteratureAction extends BaseIaceAction {
 	public String showDetail() {
 		settingTittle();
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, Literature.class);
 			this.literature = this.literatureService.get(this.id);
 			return SUCCESS;
 		} catch (Exception e) {

@@ -210,6 +210,8 @@ public class DaoFactory {
 	
 	private static IMarqueeDao marqueeDao;
 	
+	private static ClickNumCounterDao clickNumCounterDao;
+	
 	public static ISysParameterDao getSysParameterDao() {
 		if (sysParameterDao == null) {
 			sysParameterDao = new SysParameterDao();
@@ -636,6 +638,13 @@ public class DaoFactory {
 			marqueeDao = new MarqueeDao();
 		}
  		return marqueeDao;
+	}
+
+	public static ClickNumCounterDao getClickNumCounterDao() {
+		if (clickNumCounterDao == null) {
+			clickNumCounterDao = new ClickNumCounterDao();
+		}
+		return clickNumCounterDao;
 	}
 
 	

@@ -3,7 +3,6 @@ package iace.action;
 import java.util.List;
 
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.DbFile;
 import iace.entity.news.News;
 import iace.entity.news.NewsSearchModel;
@@ -46,7 +45,6 @@ public class NewsAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, News.class);
 			this.news = this.newsService.get(this.id);
 			return SUCCESS;
 		} catch (Exception e) {

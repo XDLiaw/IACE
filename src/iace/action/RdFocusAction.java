@@ -3,7 +3,6 @@ package iace.action;
 import java.util.List;
 
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.DbFile;
 import iace.entity.option.BaseOption;
 import iace.entity.rdFocus.RdFocus;
@@ -46,7 +45,6 @@ public class RdFocusAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, RdFocus.class);
 			this.rdFocus = this.rdFocusService.get(this.id);
 			return SUCCESS;
 		} catch (Exception e) {

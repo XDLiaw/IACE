@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
+import iace.dao.DaoFactory;
 import iace.entity.about.About;
 import iace.entity.about.AboutSearchModel;
 import iace.entity.option.BaseOption;
@@ -46,7 +46,6 @@ public class AboutAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, About.class);
 			this.about = this.aboutService.get(this.id);
 			return SUCCESS;
 		} catch (Exception e) {
@@ -65,7 +64,7 @@ public class AboutAction extends BaseIaceAction {
 			}
 			
 			this.about = aboutList.get(0);
-			new ClickNumCounterDao().increaseClickNum(this.about.getId(), About.class);
+			DaoFactory.getClickNumCounterDao().increaseClickNum(this.about.getId(), About.class);
 			
 			return SUCCESS;
 		} catch (Exception e) {
@@ -83,7 +82,7 @@ public class AboutAction extends BaseIaceAction {
 				this.aboutMenuList.add(new BaseOption(about.getId()+"", about.getTitle()));
 				if (about.getId() == this.id) {
 					this.about = about;
-					new ClickNumCounterDao().increaseClickNum(this.about.getId(), About.class);
+					DaoFactory.getClickNumCounterDao().increaseClickNum(this.about.getId(), About.class);
 				}
 			}
 			

@@ -14,7 +14,6 @@ import org.apache.struts2.ServletActionContext;
 
 import core.util.ExcelUtil;
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.option.BaseOption;
 import iace.entity.option.OptionGrbDomain;
 import iace.entity.option.OptionTrl;
@@ -82,7 +81,6 @@ public class ResearchPlanAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, ResearchPlan.class);
 			this.researchPlan = this.researchPlanService.get(this.id);
 			if (this.researchPlan == null) {
 				super.addActionError("找不到選擇的資料紀錄!");
@@ -185,7 +183,6 @@ public class ResearchPlanAction extends BaseIaceAction {
 	@Deprecated
 	public String showTechnologyDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.technologyId, Technology.class);
 			this.technology = this.technologyService.get(this.technologyId);
 			if (this.technology == null) {
 				super.addActionError("找不到選擇的資料紀錄!");

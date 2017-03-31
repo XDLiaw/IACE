@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.util.List;
 
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.coopExample.CoopEx;
 import iace.entity.coopExample.CoopExSearchModel;
 import iace.entity.option.BaseOption;
@@ -52,7 +51,6 @@ public class CoopExAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, CoopEx.class);
 			this.coopEx = this.coopExService.get(this.id);
 			if (this.coopEx == null) {
 				super.addActionError("找不到資料!");

@@ -15,7 +15,6 @@ import org.hibernate.exception.JDBCConnectionException;
 
 import core.util.ExcelUtil;
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.BaseBatchImportResult;
 import iace.entity.option.OptionDomain;
 import iace.entity.sys.SysRole;
@@ -86,7 +85,6 @@ public class TalentedPeopleAction extends BaseIaceAction {
 
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, TalentedPeople.class);
 			this.talentedPeople = this.talentedPeopleService.get(this.id);
 			if (this.talentedPeople == null) {
 				super.addActionError("找不到資料!");

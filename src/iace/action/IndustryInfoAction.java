@@ -5,7 +5,7 @@ import java.util.List;
 
 import core.util.AESEncrypter;
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
+import iace.dao.DaoFactory;
 import iace.entity.industryInfo.IndustryInfo;
 import iace.entity.industryInfo.IndustryInfoSearchModel;
 import iace.entity.option.BaseOption;
@@ -49,7 +49,6 @@ public class IndustryInfoAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, IndustryInfo.class);
 			this.industryInfo = this.industryInfoService.get(this.id);
 			return SUCCESS;
 		} catch (Exception e) {
@@ -60,7 +59,7 @@ public class IndustryInfoAction extends BaseIaceAction {
 	
 	public String increaseClickNum() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, IndustryInfo.class);
+			DaoFactory.getClickNumCounterDao().increaseClickNum(this.id, IndustryInfo.class);
 			return SUCCESS;
 		} catch (Exception e) {
 			super.showExceptionToPage(e);

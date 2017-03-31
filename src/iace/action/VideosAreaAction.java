@@ -1,7 +1,6 @@
 package iace.action;
 
 import core.util.PagedList;
-import iace.dao.ClickNumCounterDao;
 import iace.entity.videosArea.VideosArea;
 import iace.entity.videosArea.VideosAreaSearchModel;
 import iace.service.ServiceFactory;
@@ -39,7 +38,6 @@ public class VideosAreaAction extends BaseIaceAction {
 	
 	public String showDetail() {
 		try {
-			new ClickNumCounterDao().increaseClickNum(this.id, VideosArea.class);
 			this.videosArea = this.videosAreaService.get(this.id);
 			return SUCCESS;
 		} catch (Exception e) {

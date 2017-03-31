@@ -32,6 +32,8 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/news/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.NewsAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/news/detail.jsp</result>
 		</action>
 	</package>
@@ -46,6 +48,8 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/rdFocus/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.RdFocusAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/rdFocus/detail.jsp</result>
 		</action>
 	</package>
@@ -70,6 +74,8 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/activity/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.ActivityAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/activity/detail.jsp</result>
 		</action>
 	</package>
@@ -80,6 +86,8 @@
 			<result name="success">/WEB-INF/jsp/frontend_v2/faq/index.jsp</result>
 		</action>
 		<action name="index" class="iace.action.FaqAction" method="index">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/faq/index.jsp</result>
 		</action>
 		<action name="increaseClickNum" class="iace.action.FaqAction" method="showDetail">
@@ -100,6 +108,8 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/industryInfo/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.IndustryInfoAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success" type="redirect">${industryInfo.link}</result>
 		</action>
 		<action name="increaseClickNum" class="iace.action.IndustryInfoAction" method="increaseClickNum">
@@ -120,8 +130,9 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/coopEx/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.CoopExAction" method="showDetail">
-			<interceptor-ref name="httpRequestLog" />
 			<interceptor-ref name="iaceMemberLogin" />
+			<interceptor-ref name="httpRequestLog" />
+			<interceptor-ref name="iaceClickCounter"/>
 			<interceptor-ref name="defaultStack" />
 		
 			<result name="success">/WEB-INF/jsp/frontend_v2/coopEx/detail.jsp</result>
@@ -130,43 +141,49 @@
 	</package>
 
 	<package name="f2-ResearchPlan" namespace="/f2/researchPlan" extends="struts-default, json-default, default">
-		<default-interceptor-ref name="iaceFrontEnd"/>
 		<action name="showDetail" class="iace.action.ResearchPlanAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/researchPlan/detail.jsp</result>
 		</action>
 	</package>
 	
 	<package name="f2-Patent" namespace="/f2/patent" extends="struts-default, json-default, default">
-		<default-interceptor-ref name="iaceFrontEnd"/>
 		<action name="showDetail" class="iace.action.PatentAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/patent/detail.jsp</result>
 		</action>
 	</package>
 	
 	<package name="f2-talentedPeople" namespace="/f2/talentedPeople" extends="struts-default, json-default, default">
-		<default-interceptor-ref name="iaceFrontEnd"/>
 		<action name="showDetail" class="iace.action.TalentedPeopleAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/talentedPeople/detail.jsp</result>
 		</action>
 	</package>
 	
 	<package name="f2-IncubationCenter" namespace="/f2/incubationCenter" extends="struts-default, json-default, default">
-		<default-interceptor-ref name="iaceFrontEnd"/>
 		<action name="showDetail" class="iace.action.IncubationCenterAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/incubationCenter/detail.jsp</result>
 		</action>
 	</package>
 	
 	<package name="f2-Literature" namespace="/f2/literature" extends="struts-default, json-default, default">
-		<default-interceptor-ref name="iaceFrontEnd"/>
 		<action name="showDetail" class="iace.action.LiteratureAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/literature/detail.jsp</result>
 		</action>
 	</package>
 	
 	<package name="f2-Policy" namespace="/f2/policy" extends="struts-default, json-default, default">
-		<default-interceptor-ref name="iaceFrontEnd"/>
 		<action name="showDetail" class="iace.action.LiteratureAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/policy/detail.jsp</result>
 		</action>
 	</package>
@@ -274,6 +291,8 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/videosArea/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.VideosAreaAction" method="showDetail">
+			<interceptor-ref name="iaceFrontEnd"/>
+			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success">/WEB-INF/jsp/frontend_v2/videosArea/detail.jsp</result>
 		</action>
 	</package>
