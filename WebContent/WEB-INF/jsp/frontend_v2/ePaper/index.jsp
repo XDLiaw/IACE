@@ -11,19 +11,6 @@
 			$("input[type=text]").val("");
 			$("select").prop('selectedIndex', 0);
 		});
-		
-		$(".btn-open").click(function(){
-			$(this).parents("tr").find(".btn-open").toggle();
-			$(this).parents("tr").find(".btn-close").toggle();
-			var rowIndex = $(this).parents("tr").index();
-			$("#table-faq tbody tr").eq(rowIndex+1).toggle();
-		});
-		$(".btn-close").click(function(){
-			$(this).parents("tr").find(".btn-open").toggle();
-			$(this).parents("tr").find(".btn-close").toggle();
-			var rowIndex = $(this).parents("tr").index();
-			$("#table-faq tbody tr").eq(rowIndex+1).toggle();
-		});
 	});
 	
 </script>
