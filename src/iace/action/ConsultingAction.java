@@ -36,7 +36,7 @@ public class ConsultingAction extends BaseIaceAction {
 	private List<OptionConsult> optionConsultList;
 	private List<OptionIndustry> optionIndustryList;
 	
-	private long id;
+	private Long id;
 	private Consulting consulting;
 	private boolean beenHandled;
 	
@@ -217,11 +217,11 @@ public class ConsultingAction extends BaseIaceAction {
 	
 	//==========================================================================
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

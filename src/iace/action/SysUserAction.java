@@ -22,7 +22,7 @@ public class SysUserAction extends BaseIaceAction {
 	private PagedList<SysUser> sysUserPagedList;
 	private SysUserSearchModel searchCondition = new SysUserSearchModel();
 
-	private long id;
+	private Long id;
 	private SysUser sysUser;
 
 	private List<SysRole> sysRoleList;
@@ -139,11 +139,11 @@ public class SysUserAction extends BaseIaceAction {
 		}
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

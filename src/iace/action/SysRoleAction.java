@@ -15,7 +15,7 @@ public class SysRoleAction extends BaseIaceAction {
 	
 	private List<SysRole> sysRoleList;
 	
-	private long id;
+	private Long id;
 	private SysRole sysRole;
 	
 	public SysRoleAction() {
@@ -92,7 +92,7 @@ public class SysRoleAction extends BaseIaceAction {
 		this.sysRoleList = sysRoleList;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

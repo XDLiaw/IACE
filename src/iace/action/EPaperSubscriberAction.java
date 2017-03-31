@@ -17,7 +17,7 @@ public class EPaperSubscriberAction extends BaseIaceAction {
 	private EPaperSubscriberSearchModel searchCondition = new EPaperSubscriberSearchModel();
 	private PagedList<EPaperSubscriber> subscriberPagedList;
 	
-	private long id;
+	private Long id;
 	private EPaperSubscriber subscriber;
 	
 	private String captchaCode;
@@ -143,11 +143,11 @@ public class EPaperSubscriberAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -24,10 +24,10 @@ public class TalentedPeopleRdResultAction extends BaseIaceAction {
 	
 	private boolean isSelfMaintain;
 	
-	private long talentedPeopleId;
+	private Long talentedPeopleId;
 	private TalentedPeople talentedPeople;
 
-	private long id;
+	private Long id;
 	private TalentedPeopleRdResult talentedPeopleRdResult;
 	
 	private List<OptionDomain> mainDomainList;
@@ -177,11 +177,11 @@ public class TalentedPeopleRdResultAction extends BaseIaceAction {
 	
 	//==========================================================================
 
-	public long getTalentedPeopleId() {
+	public Long getTalentedPeopleId() {
 		return talentedPeopleId;
 	}
 
-	public void setTalentedPeopleId(long talentedPeopleId) {
+	public void setTalentedPeopleId(Long talentedPeopleId) {
 		this.talentedPeopleId = talentedPeopleId;
 	}
 
@@ -193,11 +193,11 @@ public class TalentedPeopleRdResultAction extends BaseIaceAction {
 		this.talentedPeople = talentedPeople;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

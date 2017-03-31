@@ -23,7 +23,7 @@ public class BaseOptionAction<OptionEntity extends BaseOption> extends BaseIaceA
 	protected PagedList<OptionEntity> optionPagedList;
 	protected BaseOptionSearchModel searchCondition = new BaseOptionSearchModel();
 
-	protected long id;
+	protected Long id;
 	protected OptionEntity option;
 
 	protected File uploadFile;
@@ -154,11 +154,11 @@ public class BaseOptionAction<OptionEntity extends BaseOption> extends BaseIaceA
 
 	// =========================================================================
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

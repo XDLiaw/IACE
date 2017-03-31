@@ -21,7 +21,7 @@ public class IndustryInfoAction extends BaseIaceAction {
 	private IndustryInfoSearchModel searchCondition = new IndustryInfoSearchModel();
 	private PagedList<IndustryInfo> industryInfoPagedList;
 	
-	private long id;
+	private Long id;
 	private IndustryInfo industryInfo;
 	
 	private List<BaseOption> categoryList = IndustryInfo.getCategoryList();
@@ -106,11 +106,11 @@ public class IndustryInfoAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

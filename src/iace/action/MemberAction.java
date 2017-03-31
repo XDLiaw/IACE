@@ -28,7 +28,7 @@ public class MemberAction extends BaseIaceAction {
 	private MemberSearchModel searchCondition = new MemberSearchModel();
 	private PagedList<Member> memberPagedList;
 
-	private long id;
+	private Long id;
 	private Member member;
 
 	private List<BaseOption> industryList;
@@ -318,11 +318,11 @@ public class MemberAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

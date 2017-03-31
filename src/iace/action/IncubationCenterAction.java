@@ -27,7 +27,7 @@ public class IncubationCenterAction extends BaseIaceAction {
 	private IncubationCenterSearchModel searchCondition = new IncubationCenterSearchModel();
 	private PagedList<IncubationCenter> incubationCenterPagedList;
 
-	private long id;
+	private Long id;
 	private IncubationCenter incubationCenter;
 
 	private File uploadFile;
@@ -119,11 +119,11 @@ public class IncubationCenterAction extends BaseIaceAction {
 		this.incubationCenterPagedList = incubationCenterPagedList;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

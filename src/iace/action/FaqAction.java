@@ -18,7 +18,7 @@ public class FaqAction extends BaseIaceAction {
 	private FaqSearchModel searchCondition = new FaqSearchModel();
 	private PagedList<Faq> faqPagedList;
 	
-	private long id;
+	private Long id;
 	private Faq faq;
 	
 	private List<BaseOption> categoryList = Faq.getCategoryList();
@@ -141,11 +141,11 @@ public class FaqAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

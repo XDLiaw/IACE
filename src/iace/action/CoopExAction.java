@@ -22,12 +22,12 @@ public class CoopExAction extends BaseIaceAction {
 	
 	private List<BaseOption> typeList = CoopEx.getTypeList();
 	
-	private long id;
+	private Long id;
 	private CoopEx coopEx;
 	
-	private long imgId;
-	private long videoId;
-	private long attachFileId;
+	private Long imgId;
+	private Long videoId;
+	private Long attachFileId;
 	private String downloadFileName;
 	private InputStream downloadFileInputStream;
 
@@ -154,11 +154,11 @@ public class CoopExAction extends BaseIaceAction {
 	
 	// ========================================================================
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -170,11 +170,11 @@ public class CoopExAction extends BaseIaceAction {
 		this.coopEx = coopEx;
 	}
 
-	public long getAttachFileId() {
+	public Long getAttachFileId() {
 		return attachFileId;
 	}
 
-	public void setAttachFileId(long attachFileId) {
+	public void setAttachFileId(Long attachFileId) {
 		this.attachFileId = attachFileId;
 	}
 
@@ -194,19 +194,19 @@ public class CoopExAction extends BaseIaceAction {
 		this.downloadFileInputStream = downloadFileInputStream;
 	}
 
-	public long getImgId() {
+	public Long getImgId() {
 		return imgId;
 	}
 
-	public void setImgId(long imgId) {
+	public void setImgId(Long imgId) {
 		this.imgId = imgId;
 	}
 
-	public long getVideoId() {
+	public Long getVideoId() {
 		return videoId;
 	}
 
-	public void setVideoId(long videoId) {
+	public void setVideoId(Long videoId) {
 		this.videoId = videoId;
 	}
 

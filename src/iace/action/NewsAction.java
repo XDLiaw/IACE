@@ -19,7 +19,7 @@ public class NewsAction extends BaseIaceAction {
 	private NewsSearchModel searchCondition = new NewsSearchModel();
 	private PagedList<News> newsPagedList;
 	
-	private long id;
+	private Long id;
 	private News news;
 	
 	private List<BaseOption> categoryList = News.getCategoryList();
@@ -144,7 +144,7 @@ public class NewsAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

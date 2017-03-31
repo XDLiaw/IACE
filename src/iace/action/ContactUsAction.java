@@ -17,7 +17,7 @@ public class ContactUsAction extends BaseIaceAction {
 	private ContactUsSearchModel searchCondition = new ContactUsSearchModel();
 	private PagedList<ContactUs> contactUsPagedList;
 	
-	private long id;
+	private Long id;
 	private ContactUs contactUs;
 	private boolean beenHandled;
 	
@@ -118,11 +118,11 @@ public class ContactUsAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

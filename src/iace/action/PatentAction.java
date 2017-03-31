@@ -49,7 +49,7 @@ public class PatentAction extends BaseIaceAction {
 	private List<OptionCountry> optionCountryList;
 	private List<OptionTrl> optionTrlList;
 
-	private long id;
+	private Long id;
 	private Patent patent;
 
 	private File uploadPatentImg;
@@ -316,11 +316,11 @@ public class PatentAction extends BaseIaceAction {
 
 	// ==========================================================================
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

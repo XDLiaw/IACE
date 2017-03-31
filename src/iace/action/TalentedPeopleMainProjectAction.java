@@ -27,7 +27,7 @@ public class TalentedPeopleMainProjectAction extends BaseIaceAction {
 	private long talentedPeopleId;
 	private TalentedPeople talentedPeople;
 
-	private long id;
+	private Long id;
 	private TalentedPeopleMainProject talentedPeopleMainProject;
 	
 	private List<OptionDomain> mainDomainList;
@@ -209,11 +209,11 @@ public class TalentedPeopleMainProjectAction extends BaseIaceAction {
 		this.talentedPeople = talentedPeople;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

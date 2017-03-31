@@ -35,7 +35,7 @@ public class EnterpriseNeedAction extends BaseIaceAction {
 	private List<OptionHadTecSrc> optionHadTecSrcList;
 	private List<OptionCooperateMode> optionCooperateModeList;
 	
-	private long id;
+	private Long id;
 	private EnterpriseInfo enterpriseInfo;
 	private EnterpriseNeedSearchModel searchCondition = new EnterpriseNeedSearchModel();
 	private PagedList<EnterpriseInfo> enterpriseInfoPagedList;
@@ -225,11 +225,11 @@ public class EnterpriseNeedAction extends BaseIaceAction {
 		this.enterpriseInfoPagedList = enterpriseInfoPagedList;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

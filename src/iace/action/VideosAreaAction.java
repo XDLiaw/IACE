@@ -15,7 +15,7 @@ public class VideosAreaAction extends BaseIaceAction {
 	private VideosAreaSearchModel searchCondition = new VideosAreaSearchModel();
 	private PagedList<VideosArea> videosAreaPagedList;
 	
-	private long id;
+	private Long id;
 	private VideosArea videosArea;
 	
 	public VideosAreaAction() {
@@ -136,11 +136,11 @@ public class VideosAreaAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

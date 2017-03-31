@@ -46,7 +46,7 @@ public class ResearchPlanAction extends BaseIaceAction {
 	
 	private Boolean fromHomePage;
 	
-	private long id;
+	private Long id;
 	private ResearchPlan researchPlan;	
 	
 	private long technologyId;
@@ -357,11 +357,11 @@ public class ResearchPlanAction extends BaseIaceAction {
 		return optionTrlList;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

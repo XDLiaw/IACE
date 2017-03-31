@@ -28,7 +28,7 @@ public class SysLogAction extends BaseIaceAction {
 	private SysLogSearchModel searchCondition = new SysLogSearchModel();
 	private PagedList<SysLog> sysLogPagedList;
 	
-	private long id;
+	private Long id;
 	private SysLog sysLog;
 	
 	public SysLogAction() {
@@ -96,11 +96,11 @@ public class SysLogAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

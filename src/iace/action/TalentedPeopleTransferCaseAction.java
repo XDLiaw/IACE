@@ -23,10 +23,10 @@ public class TalentedPeopleTransferCaseAction extends BaseIaceAction {
 	
 	private boolean isSelfMaintain;
 	
-	private long talentedPeopleId;
+	private Long talentedPeopleId;
 	private TalentedPeople talentedPeople;
 
-	private long id;
+	private Long id;
 	private TalentedPeopleTransferCase talentedPeopleTransferCase;
 	
 	private List<OptionDomain> mainDomainList;
@@ -192,11 +192,11 @@ public class TalentedPeopleTransferCaseAction extends BaseIaceAction {
 		this.scrollTo = scrollTo;
 	}
 
-	public long getTalentedPeopleId() {
+	public Long getTalentedPeopleId() {
 		return talentedPeopleId;
 	}
 
-	public void setTalentedPeopleId(long talentedPeopleId) {
+	public void setTalentedPeopleId(Long talentedPeopleId) {
 		this.talentedPeopleId = talentedPeopleId;
 	}
 
@@ -208,11 +208,11 @@ public class TalentedPeopleTransferCaseAction extends BaseIaceAction {
 		this.talentedPeople = talentedPeople;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

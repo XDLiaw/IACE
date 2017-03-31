@@ -42,8 +42,8 @@ public class TalentedPeopleAction extends BaseIaceAction {
 	private TalentedPeopleSearchModel searchCondition = new TalentedPeopleSearchModel();
 	private PagedList<TalentedPeople> talentedPeoplePagedList;
 
-	private long id;
-	private long sysRoleId;
+	private Long id;
+	private Long sysRoleId;
 	private TalentedPeople talentedPeople;
 	private TalentedPeoplePDPL talentedPeoplePDPL;
 	private SysUser sysUser;
@@ -469,11 +469,11 @@ public class TalentedPeopleAction extends BaseIaceAction {
 		this.talentedPeoplePagedList = talentedPeoplePagedList;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -540,11 +540,11 @@ public class TalentedPeopleAction extends BaseIaceAction {
 		return reportInputStream;
 	}
 
-	public long getSysRoleId() {
+	public Long getSysRoleId() {
 		return sysRoleId;
 	}
 
-	public void setSysRoleId(long sysRoleId) {
+	public void setSysRoleId(Long sysRoleId) {
 		this.sysRoleId = sysRoleId;
 	}
 

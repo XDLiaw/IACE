@@ -19,7 +19,7 @@ public class RdFocusAction extends BaseIaceAction {
 	private RdFocusSearchModel searchCondition = new RdFocusSearchModel();
 	private PagedList<RdFocus> rdFocusPagedList;
 	
-	private long id;
+	private Long id;
 	private RdFocus rdFocus;
 	
 	private List<BaseOption> categoryList = RdFocus.getCategoryList();
@@ -144,11 +144,11 @@ public class RdFocusAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

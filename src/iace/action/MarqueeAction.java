@@ -13,7 +13,7 @@ public class MarqueeAction extends BaseIaceAction {
 	
 	private List<Marquee> marqueeList;
 	
-	private long id;
+	private Long id;
 	private Marquee marquee;
 	
 	public MarqueeAction() {
@@ -97,11 +97,11 @@ public class MarqueeAction extends BaseIaceAction {
 	
 	//==========================================================================
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

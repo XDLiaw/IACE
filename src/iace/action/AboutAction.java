@@ -22,7 +22,7 @@ public class AboutAction extends BaseIaceAction {
 	
 	private List<BaseOption> aboutMenuList;
 	
-	private long id;
+	private Long id;
 	private About about;
 	
 	public AboutAction() {
@@ -184,11 +184,11 @@ public class AboutAction extends BaseIaceAction {
 		return aboutPagedList;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

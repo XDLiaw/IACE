@@ -19,7 +19,7 @@ public class ActivityAction extends BaseIaceAction {
 	private ActivitySearchModel searchCondition = new ActivitySearchModel();
 	private PagedList<Activity> activityPagedList;
 			
-	private long id;
+	private Long id;
 	private Activity activity;
 	
 	private List<BaseOption> categoryList = Activity.getCategoryList();
@@ -144,11 +144,11 @@ public class ActivityAction extends BaseIaceAction {
 		this.searchCondition = searchCondition;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
