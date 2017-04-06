@@ -4,6 +4,7 @@ import iace.dao.DaoFactory;
 import iace.service.about.AboutService;
 import iace.service.activity.ActivityAttachService;
 import iace.service.activity.ActivityService;
+import iace.service.activity.PopularActivityService;
 import iace.service.consulting.ConsultingService;
 import iace.service.coopExample.CoopExAttachFileService;
 import iace.service.coopExample.CoopExImgService;
@@ -128,6 +129,7 @@ public class ServiceFactory {
 	
 	private static ActivityService activityService;
 	private static ActivityAttachService activityAttachService;
+	private static PopularActivityService popularActivityService;
 	
 	private static MemberService memberService;
 	
@@ -532,6 +534,16 @@ public class ServiceFactory {
 		return activityAttachService;
 	}
 	
+	public static PopularActivityService getPopularActivityService() {
+		if (popularActivityService == null) {
+			popularActivityService = new PopularActivityService(
+					DaoFactory.getPopularActivityDao(),
+					DaoFactory.getActivityDao(),
+					DaoFactory.getHttpRequestLogDao());
+		}
+		return popularActivityService;
+	}
+
 	public static MemberService getMemberService() {
 		if (memberService == null) {
 			memberService = new MemberService(

@@ -15,6 +15,7 @@ import iace.entity.researchPlan.Technology;
 import iace.entity.talentedPeople.TalentedPeople;
 import iace.service.ServiceFactory;
 import iace.service.activity.ActivityService;
+import iace.service.activity.PopularActivityService;
 import iace.service.coopExample.CoopExService;
 import iace.service.industryInfo.IndustryInfoService;
 import iace.service.literature.LiteratureService;
@@ -32,6 +33,7 @@ public class HomeAction extends BaseIaceAction {
 
 	private NewsService newsService = ServiceFactory.getNewsService();
 	private ActivityService activityService = ServiceFactory.getActivityService();
+	private PopularActivityService popularActivityService = ServiceFactory.getPopularActivityService();
 	private IndustryInfoService industryInfoService = ServiceFactory.getIndustryInfoService();
 	private TechnologyService technologyService = ServiceFactory.getTechnologyService();
 	private PatentService patentService = ServiceFactory.getPatentService();
@@ -75,7 +77,8 @@ public class HomeAction extends BaseIaceAction {
 	
 	public String init2() {
 		try {
-			this.hot20ActivityList = this.activityService.hot20();
+//			this.hot20ActivityList = this.activityService.hot20(); //TODO
+			this.hot20ActivityList = this.popularActivityService.hot20(); //TODO
 			
 			this.newsList = this.newsService.sampleForHomePage();
 			this.activityList = this.activityService.sampleForHomePage();

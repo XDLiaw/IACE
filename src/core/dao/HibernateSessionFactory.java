@@ -15,6 +15,7 @@ import iace.entity.about.About;
 import iace.entity.activity.Activity;
 import iace.entity.activity.ActivityAttach;
 import iace.entity.activity.ActivityVideo;
+import iace.entity.activity.PopularActivity;
 import iace.entity.consulting.Consulting;
 import iace.entity.consulting.ConsultingManager;
 import iace.entity.coopExample.CoopEx;
@@ -233,6 +234,7 @@ public class HibernateSessionFactory {
 		configuration.addAnnotatedClass(Activity.class);
 		configuration.addAnnotatedClass(ActivityAttach.class);
 		configuration.addAnnotatedClass(ActivityVideo.class);
+		configuration.addAnnotatedClass(PopularActivity.class);
 		
 		configuration.addAnnotatedClass(Faq.class);
 		

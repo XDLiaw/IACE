@@ -134,6 +134,11 @@
 			<interceptor-ref name="defaultStack" />
 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
 		</action>
+		<action name="reflashMonthlyPopularActivity" class="iace.action.PopularActivityAction" method="reflashMonthlyPopularActivity">
+			<interceptor-ref name="iaceSession"/>
+			<interceptor-ref name="iaceBackendlogin"/>
+			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
+		</action>
 	</package>
 	
 	<package name="Captcha" namespace="/captcha" extends="struts-default">

@@ -8,6 +8,8 @@ import iace.dao.activity.ActivityVideoDao;
 import iace.dao.activity.IActivityAttachDao;
 import iace.dao.activity.IActivityDao;
 import iace.dao.activity.IActivityVideoDao;
+import iace.dao.activity.IPopularActivityDao;
+import iace.dao.activity.PopularActivityDao;
 import iace.dao.consulting.ConsultingDao;
 import iace.dao.consulting.ConsultingManagerDao;
 import iace.dao.consulting.IConsultingDao;
@@ -191,6 +193,7 @@ public class DaoFactory {
 	private static IActivityDao activityDao;
 	private static IActivityAttachDao activityAttachDao;
 	private static IActivityVideoDao activityVideoDao;
+	private static IPopularActivityDao popularActivityDao;
 	
 	private static IMemberDao memberDao;
 	
@@ -561,6 +564,13 @@ public class DaoFactory {
 			activityVideoDao = new ActivityVideoDao();
 		}
 		return activityVideoDao;
+	}
+	
+	public static IPopularActivityDao getPopularActivityDao() {
+		if (popularActivityDao == null) {
+			popularActivityDao = new PopularActivityDao();
+		}
+		return popularActivityDao;
 	}
 
 	public static IMemberDao getMemberDao() {
