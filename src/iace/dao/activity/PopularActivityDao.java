@@ -54,9 +54,10 @@ public class PopularActivityDao extends BaseIaceDao<PopularActivity> implements 
 		try {
 			Session session = HibernateSessionFactory.getSession();
 			tran = session.beginTransaction();
-			Query query = session.createQuery("delete "+super.entityClass.getSimpleName()+" where pinned = :pinned");
+			Query query = session.createQuery("delete from "+super.entityClass.getSimpleName()+" where pinned = :pinned");
 			query.setBoolean("pinned", false);
 			query.executeUpdate();
+			tran.commit();
 		} catch (HibernateException e) {
 			if (tran != null) {
 				tran.rollback();

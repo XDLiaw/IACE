@@ -77,8 +77,8 @@ public class HomeAction extends BaseIaceAction {
 	
 	public String init2() {
 		try {
-//			this.hot20ActivityList = this.activityService.hot20(); //TODO
-			this.hot20ActivityList = this.popularActivityService.hot20(); //TODO
+			this.hot20ActivityList = this.activityService.hot20(); //TODO
+//			this.hot20ActivityList = this.popularActivityService.hot20(); //TODO
 			
 			this.newsList = this.newsService.sampleForHomePage();
 			this.activityList = this.activityService.sampleForHomePage();

@@ -39,7 +39,7 @@ public class PopularActivityService extends BaseIaceService<PopularActivity> {
 			PopularActivity pa = new PopularActivity();
 			pa.setActivityId(id);
 			pa.setPinned(false);
-			pa.setPriority((float)i);
+			pa.setPriority((float)i+1);
 			this.popularActivityDao.create(pa);
 		}
 	}

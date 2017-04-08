@@ -36,14 +36,16 @@ public class HttpRequestLogDao extends BaseIaceDao<HttpRequestLog> implements IH
 					+ "AND HRL.createTime > :start "
 					+ "AND HRL.createTime < :end "
 					+ "AND HRL.isValid = :isValid "
+					+ "AND HRL.showDetailId IS NOT NULL "
 					+ "GROUP BY HRL.showDetailId "
-					+ "ORDER BY count(hrl.id) desc";
+					+ "ORDER BY count(HRL.id) desc";
 			Query query = session.createQuery(hql);
 			query.setString("cls", Activity.class.getName());
 			query.setDate("start", start);
 			query.setDate("end", end);
 			query.setString("isValid", BaseEntity.TRUE);
 			query.setMaxResults(maxResultNum);
+			@SuppressWarnings("unchecked")
 			List<Long> idList = query.list();
 			return idList;
 		} catch (Exception e) {

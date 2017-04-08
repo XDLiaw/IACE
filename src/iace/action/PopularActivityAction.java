@@ -16,6 +16,7 @@ public class PopularActivityAction extends BaseIaceAction {
 	public String reflashMonthlyPopularActivity() {
 		try {
 			this.popularActivityService.reflashMonthlyPopularActivity();
+			super.addActionMessage("HOT20更新完成!");
 			return SUCCESS;
 		} catch (Exception e) {
 			super.showExceptionToPage(e);
