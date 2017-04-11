@@ -7,11 +7,11 @@
 	<session-factory>
 		<property name="show_sql">true</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.1.19:1521/orcl.0.2.15</property>
-		<property name="hibernate.connection.username">iAce_admin</property>
-		<property name="hibernate.connection.password">!QAZ2wsx</property>
-		<property name="hibernate.default_schema">IACE_ADMIN</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@114.32.163.163:1521/orcl</property>
+		<property name="hibernate.connection.username">quincy</property>
+		<property name="hibernate.connection.password">a5300445</property>
+		<property name="hibernate.default_schema">QUINCY</property>
 
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<property name="hibernate.c3p0.min_size">5</property>

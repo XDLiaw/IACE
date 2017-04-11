@@ -26,6 +26,7 @@ import iace.entity.sysAuth.sysApplication.SysAppMember;
 import iace.entity.sysAuth.sysApplication.SysAppNews;
 import iace.entity.sysAuth.sysApplication.SysAppOptionManage;
 import iace.entity.sysAuth.sysApplication.SysAppPatent;
+import iace.entity.sysAuth.sysApplication.SysAppPopularActivity;
 import iace.entity.sysAuth.sysApplication.SysAppQnrCoopWay;
 import iace.entity.sysAuth.sysApplication.SysAppRdFocus;
 import iace.entity.sysAuth.sysApplication.SysAppResearchPlan;
@@ -75,6 +76,8 @@ public class SysAuth {
 	
 	private SysAppMarquee marquee = new SysAppMarquee();
 	
+	private SysAppPopularActivity popularActivity= new SysAppPopularActivity();
+	
 	public SysAuth() {
 		Properties prop = new Properties();
 		try {
@@ -115,6 +118,7 @@ public class SysAuth {
 		sysApps.add(this.epaper);
 		sysApps.add(this.epaperSubscriber);
 		sysApps.add(this.marquee);
+		sysApps.add(this.popularActivity);
 		return sysApps;
 	}
 
@@ -240,6 +244,10 @@ public class SysAuth {
 
 	public SysAppActivity getActivity() {
 		return activity;
+	}
+
+	public SysAppPopularActivity getPopularActivity() {
+		return popularActivity;
 	}
 
 	public SysAppMember getMember() {

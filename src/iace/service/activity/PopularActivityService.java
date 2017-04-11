@@ -62,4 +62,35 @@ public class PopularActivityService extends BaseIaceService<PopularActivity> {
 		}
 		return res;
 	}
+	
+	public List<Activity> hot20Pinned(){        //除去第一行 其他與hot20相同                               
+		List<PopularActivity> pas = this.popularActivityDao.listAllPinned();
+		List<Long> ids = new ArrayList<Long>();
+		for (PopularActivity pa : pas) {
+			if (ids.contains(pa.getActivityId()) == false) {
+				ids.add(pa.getActivityId());
+			}
+			if (ids.size() == 20) {
+				break;
+			}
+		}
+		List<Activity> res = new ArrayList<Activity>();
+		for (Long id : ids) {
+			Activity a = this.activityDao.get(id);
+			res.add(a);
+		}
+		return res;		
+	}
+	
+	public void updatePinned(){
+		List<PopularActivity> pas;
+		this.popularActivityDao.deleteAllPinned();
+		//待新增 已刪除舊的pinned 
+		
+	}
+	
+	public void reflashShowDetail(){
+		this.httpRequestLogDao.updateShowDetailClass();
+		this.httpRequestLogDao.updateShowDetailId();
+	}
 }

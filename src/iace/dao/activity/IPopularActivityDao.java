@@ -16,4 +16,6 @@ public interface IPopularActivityDao extends IBaseIaceDao<PopularActivity> {
 	 * 刪除非置頂的活動人培
 	 */
 	public void deleteAllNotPinned();
+
+	public void deleteAllPinned();
 }

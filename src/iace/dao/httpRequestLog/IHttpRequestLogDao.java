@@ -8,4 +8,6 @@ import iace.entity.httpRequestLog.HttpRequestLog;
 
 public interface IHttpRequestLogDao extends IBaseIaceDao<HttpRequestLog> {
 	public List<Long> getPopularActivityId(int maxResultNum, Date start, Date end);
+	public void updateShowDetailId();
+	public void updateShowDetailClass();
 }

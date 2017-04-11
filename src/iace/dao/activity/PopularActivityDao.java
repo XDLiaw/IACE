@@ -67,6 +67,26 @@ public class PopularActivityDao extends BaseIaceDao<PopularActivity> implements 
 			HibernateSessionFactory.closeSession();
 		}
 	}
+	
+	@Override
+	public void deleteAllPinned() {
+		// TODO 刪除所有被選的
+		Transaction tran = null;
+		try {
+			Session session = HibernateSessionFactory.getSession();
+			tran = session.beginTransaction();
+			Query query = session.createQuery("delete "+super.entityClass.getSimpleName()+" where pinned = :pinned");
+			query.setBoolean("pinned", true);
+			query.executeUpdate();
+		} catch (HibernateException e) {
+			if (tran != null) {
+				tran.rollback();
+			}
+			throw e;
+		} finally {
+			HibernateSessionFactory.closeSession();
+		}
+	}
 
 	
 }

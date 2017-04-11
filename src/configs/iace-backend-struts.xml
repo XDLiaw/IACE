@@ -755,6 +755,23 @@
 			<result name="success">/WEB-INF/jsp/backend/activity/index.jsp</result>
 		</action>
 	</package>
+	
+	<package name="PopularActivity" namespace="/popularActivity" extends="struts-default, json-default, default">
+		<default-interceptor-ref name="iaceBackEnd"/>
+		<action name="init" class="iace.action.PopularActivityAction" method="init">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/index.jsp</result>
+		</action>
+		<action name="index" class="iace.action.PopularActivityAction" method="index">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/index.jsp</result>
+			<result name="input">/WEB-INF/jsp/backend/popularActivity/index.jsp</result>
+		</action>
+		<action name="showDetail" class="iace.action.PopularActivityAction" method="showDetail">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/detail.jsp</result>
+		</action>
+		<action name="createSubmit" class="iace.action.PopularActivityAction" method="createSubmit">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/detail.jsp</result>
+		</action>
+	</package>
 
 	<package name="Member" namespace="/member" extends="struts-default, json-default, default">
 		<default-interceptor-ref name="iaceBackEnd"/>

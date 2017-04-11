@@ -11,6 +11,9 @@
 			<s:if test='%{#session.sysUser.hasAuth("/activity", "create")}'>
 				<li><a href="<s:url value="/activity/create"/>">新增</a></li>
 			</s:if>	
+			<s:if test='%{#session.sysUser.hasAuth("/popularActivity", "update")}'>
+				<li><a href="<s:url value="/popularActivity/init"/>">hot20</a></li>
+			</s:if>	
 		</ul>
 	</li>
 </s:if>
