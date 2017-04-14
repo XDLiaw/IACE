@@ -22,4 +22,5 @@ public interface IActivityDao extends IBaseIaceDao<Activity> {
 	 * @return
 	 */
 	public List<Activity> popular(int resultNum);
+	
 }

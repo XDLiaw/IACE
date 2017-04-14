@@ -139,11 +139,16 @@
 			<interceptor-ref name="iaceBackendlogin"/>
 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
 		</action>
-		<action name="updateHttpRequestLog" class="iace.action.PopularActivityAction" method="updateHttpRequestLog">
+		<action name="reflashMonthlyPopularActivityWithoutLogin" class="iace.action.PopularActivityAction" method="reflashMonthlyPopularActivityWithoutLogin">
 			<interceptor-ref name="iaceSession"/>
 			<interceptor-ref name="iaceBackendlogin"/>
 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
 		</action>
+<!-- 		<action name="updateHttpRequestLog" class="iace.action.PopularActivityAction" method="updateHttpRequestLog"> -->
+<!-- 			<interceptor-ref name="iaceSession"/> -->
+<!-- 			<interceptor-ref name="iaceBackendlogin"/> -->
+<!-- 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result> -->
+<!-- 		</action> -->
 	</package>
 	
 	<package name="Captcha" namespace="/captcha" extends="struts-default">

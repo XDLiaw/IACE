@@ -9,7 +9,10 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.ProjectionList;
@@ -23,6 +26,8 @@ import iace.dao.BaseIaceDao;
 import iace.entity.BaseEntity;
 import iace.entity.activity.Activity;
 import iace.entity.activity.ActivitySearchModel;
+import iace.entity.activity.PopularActivity;
+import iace.entity.httpRequestLog.HttpRequestLog;
 
 public class ActivityDao extends BaseIaceDao<Activity> implements IActivityDao {
 
@@ -82,7 +87,7 @@ public class ActivityDao extends BaseIaceDao<Activity> implements IActivityDao {
 			HibernateSessionFactory.closeSession();
 		}
 	}
-
+	
 	@Override
 	public long queryTotalRecordsCount(ActivitySearchModel arg) {
 		try {
@@ -197,6 +202,5 @@ public class ActivityDao extends BaseIaceDao<Activity> implements IActivityDao {
 			HibernateSessionFactory.closeSession();
 		}
 	}
-	
 	
 }

@@ -12,8 +12,19 @@ import org.hibernate.criterion.Order;
 import core.dao.HibernateSessionFactory;
 import iace.dao.BaseIaceDao;
 import iace.entity.BaseEntity;
+import iace.entity.about.About;
 import iace.entity.activity.Activity;
+import iace.entity.coopExample.CoopEx;
 import iace.entity.httpRequestLog.HttpRequestLog;
+import iace.entity.incubationCenter.IncubationCenter;
+import iace.entity.industryInfo.IndustryInfo;
+import iace.entity.literature.Literature;
+import iace.entity.news.News;
+import iace.entity.patent.Patent;
+import iace.entity.rdFocus.RdFocus;
+import iace.entity.researchPlan.ResearchPlan;
+import iace.entity.talentedPeople.TalentedPeople;
+import iace.entity.videosArea.VideosArea;
 
 public class HttpRequestLogDao extends BaseIaceDao<HttpRequestLog> implements IHttpRequestLogDao {
 
@@ -100,42 +111,42 @@ public class HttpRequestLogDao extends BaseIaceDao<HttpRequestLog> implements IH
 				
 				if("showDetail".equals(h.getActionName())){
 					if("/f2/about".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.about.About");
+						h.setShowDetailClassName(About.class.getName());
 					}
 					else if("/f2/activity".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.activity.Activity");
+						h.setShowDetailClassName(Activity.class.getName());
 				    }
 					else if("/f2/coopEx".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.coopExample.CoopEx");
+						h.setShowDetailClassName(CoopEx.class.getName());
 				    }
 					else if("/f2/incubationCenter".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.incubationCenter.IncubationCenter");
+						h.setShowDetailClassName(IncubationCenter.class.getName());
 				    }
 					else if("/f2/industryInfo".equals(h.getNamespace())){
-				    	h.setShowDetailClassName("iace.entity.industryInfo.IndustryInfo");
+				    	h.setShowDetailClassName(IndustryInfo.class.getName());
 				    }
 					else if("/f2/literature".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.literature.Literature");
+						h.setShowDetailClassName(Literature.class.getName());
 				    }
 					else if("/f2/news".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.news.News");
+						h.setShowDetailClassName(News.class.getName());
 				    }
 					else if("/f2/patent".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.patent.Patent");
+						h.setShowDetailClassName(Patent.class.getName());
 				    }
 					else if("/f2/policy".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.literature.Literature");
+						h.setShowDetailClassName(Literature.class.getName());
 				    }
 					else if("/f2/rdFocus".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.rdFocus.RdFocus");
+						h.setShowDetailClassName(RdFocus.class.getName());
 				    }
 					else if("/f2/researchPlan".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.researchPlan.ResearchPlan");
+						h.setShowDetailClassName(ResearchPlan.class.getName());
 				    }
 					else if("/f2/talentedPeople".equals(h.getNamespace())){
-						h.setShowDetailClassName("iace.entity.talentedPeople.TalentedPeople");				    }
+						h.setShowDetailClassName(TalentedPeople.class.getName());				    }
 					else if("/f2/videosArea".equals(h.getNamespace())){
-				    	h.setShowDetailClassName("iace.entity.videosArea.VideosArea");
+				    	h.setShowDetailClassName(VideosArea.class.getName());
 				    }
 				}				
 			}

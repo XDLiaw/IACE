@@ -28,8 +28,8 @@
 	<div>
 		<a href="<s:url value="/developerFunc/reflashMonthlyPopularActivity"/>">ReflashHot20</a>
 	</div>	
-	<div>
-		<a href="<s:url value="/developerFunc/updateHttpRequestLog"/>">更新httpRequestLog之SHOW_DETAIL_ID和SHOW_DETAIL_CLASS_NAME</a>
-	</div>	
+<!-- 	<div> -->
+<%-- 		<a href="<s:url value="/developerFunc/updateHttpRequestLog"/>">更新httpRequestLog之SHOW_DETAIL_ID和SHOW_DETAIL_CLASS_NAME</a> --%>
+<!-- 	</div>	 -->
 </body>
 </html>

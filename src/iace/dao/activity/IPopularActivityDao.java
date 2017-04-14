@@ -18,4 +18,5 @@ public interface IPopularActivityDao extends IBaseIaceDao<PopularActivity> {
 	public void deleteAllNotPinned();
 
 	public void deleteAllPinned();
+	
 }

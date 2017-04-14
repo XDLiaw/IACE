@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
+import core.util.PagedList;
 import iace.dao.activity.IActivityDao;
 import iace.dao.activity.IPopularActivityDao;
 import iace.dao.httpRequestLog.IHttpRequestLogDao;
 import iace.entity.activity.Activity;
+import iace.entity.activity.ActivitySearchModel;
 import iace.entity.activity.PopularActivity;
 import iace.service.BaseIaceService;
 
@@ -82,15 +85,33 @@ public class PopularActivityService extends BaseIaceService<PopularActivity> {
 		return res;		
 	}
 	
-	public void updatePinned(){
-		List<PopularActivity> pas;
+	public void updatePinned(Set<Long> activityIds){
+		List<PopularActivity> popularActivityList=new ArrayList<PopularActivity>();
 		this.popularActivityDao.deleteAllPinned();
-		//待新增 已刪除舊的pinned 
+		for(Long a:activityIds){
+			PopularActivity popularActivity=new PopularActivity();
+			popularActivity.setPinned(true);
+			popularActivity.setActivityId(a);
+			popularActivity.setPriority((float)1);
+			popularActivityList.add(popularActivity);
+		}
+		this.popularActivityDao.createAll(popularActivityList);
+		//待新增 
 		
 	}
 	
 	public void reflashShowDetail(){
 		this.httpRequestLogDao.updateShowDetailClass();
 		this.httpRequestLogDao.updateShowDetailId();
+	}
+	//應該要加在activityService??
+	public PagedList<Activity> activityListToPageList(List<Activity> activityList,ActivitySearchModel arg) {
+		PagedList<Activity> results = new PagedList<Activity>(activityList,activityList.size(), arg.getPageSize(), arg.getPageIndex());
+		return results;
+	} 
+	
+	public List<PopularActivity> getPinnedPopularActivityList(){
+		return this.popularActivityDao.listAllPinned();
+		
 	}
 }

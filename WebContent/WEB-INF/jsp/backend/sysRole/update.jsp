@@ -267,6 +267,7 @@
 				<td class="horizontalList">
 					<s:checkbox label="%{sysRole.sysAuth.popularActivity.opView.displayName}" name="sysRole.sysAuth.popularActivity.opView.auth" fieldValue="true"/>
 					<s:checkbox label="%{sysRole.sysAuth.popularActivity.opUpdate.displayName}" name="sysRole.sysAuth.popularActivity.opUpdate.auth" fieldValue="true"/>
+					<s:checkbox label="%{sysRole.sysAuth.popularActivity.opDelete.displayName}" name="sysRole.sysAuth.popularActivity.opDelete.auth" fieldValue="true"/>										
 				</td>
 			</tr>		
 		</table>

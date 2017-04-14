@@ -759,17 +759,20 @@
 	<package name="PopularActivity" namespace="/popularActivity" extends="struts-default, json-default, default">
 		<default-interceptor-ref name="iaceBackEnd"/>
 		<action name="init" class="iace.action.PopularActivityAction" method="init">
-			<result name="success">/WEB-INF/jsp/backend/popularActivity/index.jsp</result>
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/init.jsp</result>
 		</action>
 		<action name="index" class="iace.action.PopularActivityAction" method="index">
 			<result name="success">/WEB-INF/jsp/backend/popularActivity/index.jsp</result>
 			<result name="input">/WEB-INF/jsp/backend/popularActivity/index.jsp</result>
 		</action>
-		<action name="showDetail" class="iace.action.PopularActivityAction" method="showDetail">
-			<result name="success">/WEB-INF/jsp/backend/popularActivity/detail.jsp</result>
+		<action name="updateSubmit" class="iace.action.PopularActivityAction" method="indexSubmit">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/init.jsp</result>
 		</action>
-		<action name="createSubmit" class="iace.action.PopularActivityAction" method="createSubmit">
-			<result name="success">/WEB-INF/jsp/backend/popularActivity/detail.jsp</result>
+		<action name="update" class="iace.action.PopularActivityAction" method="update">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/init.jsp</result>
+		</action>
+		<action name="delete" class="iace.action.PopularActivityAction" method="delete">
+			<result name="success">/WEB-INF/jsp/backend/popularActivity/init.jsp</result>
 		</action>
 	</package>
 
