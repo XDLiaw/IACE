@@ -8,7 +8,7 @@
 		<property name="show_sql">true</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@114.32.163.163:1521/orcl</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521/orcl</property>
 		<property name="hibernate.connection.username">quincy</property>
 		<property name="hibernate.connection.password">a5300445</property>
 		<property name="hibernate.default_schema">QUINCY</property>

@@ -557,6 +557,9 @@ public class EPaperService extends BaseIaceService<EPaper> {
 			sb.append("									<td width=\"21%\" align=\"left\" valign=\"top\" style=\"font-size: 16px; color: #0099cc; font-family: 微軟正黑體, Arial, Helvetica; padding-top: 6px; line-height: 25px\">").append("\r\n");
 			sb.append("										<strong>"+rp.getGrbDomain1().getName()+"</strong>").append("\r\n");
 			sb.append("									</td>").append("\r\n");
+		    sb.append("									<td style=\"border:none; width:75px;\">").append("\r\n");
+		    sb.append("									<span style=\"background-color: #5bc0de; display: inline;  padding: .2em .6em .3em;  font-size: 75%;  font-weight: bold;  line-height: 1;  color: #fff;  text-align: center;  white-space: nowrap;  vertical-align: baseline;  border-radius: .25em; \"><strong>研發成果</strong></span>").append("\r\n");
+			sb.append("									</td>").append("\r\n");
 			sb.append("									<td align=\"left\" valign=\"top\" style=\"padding-top: 6px\">").append("\r\n");
 			sb.append("										<a href=\""+url+"\" target=\"_blank\" style=\"font-size: 17px; color: #000; font-family: 微軟正黑體, Arial, Helvetica; line-height: 25px\">").append("\r\n");
 			sb.append("											<strong>"+rp.getName()+"</strong>").append("\r\n");
@@ -577,6 +580,9 @@ public class EPaperService extends BaseIaceService<EPaper> {
 			sb.append("									<td width=\"21%\" align=\"left\" valign=\"top\" style=\"font-size: 16px; color: #0099cc; font-family: 微軟正黑體, Arial, Helvetica; padding-top: 6px; line-height: 25px\">").append("\r\n");
 			sb.append("										<strong>"+patent.getTechField().getName()+"</strong>").append("\r\n");
 			sb.append("									</td>").append("\r\n");
+		    sb.append("									<td style=\"border:none; width:75px;\">").append("\r\n");
+		    sb.append("									<span style=\"background-color: #64a614; display: inline;  padding: .2em .6em .3em;  font-size: 75%;  font-weight: bold;  line-height: 1;  color: #fff;  text-align: center;  white-space: nowrap;  vertical-align: baseline;  border-radius: .25em; \"><strong>專利</strong></span>").append("\r\n");
+			sb.append("									</td>").append("\r\n");			
 			sb.append("									<td align=\"left\" valign=\"top\" style=\"padding-top: 6px\">").append("\r\n");
 			sb.append("										<a href=\""+url+"\" target=\"_blank\" style=\"font-size: 17px; color: #000; font-family: 微軟正黑體, Arial, Helvetica; line-height: 25px\">").append("\r\n");
 			sb.append("											<strong>"+patent.getName()+"</strong>").append("\r\n");
@@ -682,6 +688,24 @@ public class EPaperService extends BaseIaceService<EPaper> {
 			sb.append("									<td width=\"4%\" align=\"left\" valign=\"top\" style=\"padding-top: 6px\">").append("\r\n");
 			sb.append("										<img src=\""+urlDomainName+"/ePapers/images/q-icon.png\" width=\"22\" height=\"22\" />").append("\r\n");
 			sb.append("									</td>").append("\r\n");
+			if(faq.getCategory().equals("運用法人鏈結產學合作計畫")){
+				sb.append("									<td style=\"border:none; width:75px;\">").append("\r\n");
+			    sb.append("									<span style=\"background-color: #f1a35b; display: inline;  padding: .2em .6em .3em;  font-size: 75%;  font-weight: bold;  line-height: 1;  color: #fff;  text-align: center;  white-space: nowrap;  vertical-align: baseline;  border-radius: .25em; \"><strong>&nbsp;&nbsp;鏈結計畫&nbsp;&nbsp;</strong></span>").append("\r\n");
+				sb.append("									</td>").append("\r\n");		
+			}
+			else if(faq.getCategory().equals("智財實務專業人才培訓")){
+				sb.append("									<td style=\"border:none; width:75px;\">").append("\r\n");
+			    sb.append("									<span style=\"background-color: #6693ea; display: inline;  padding: .2em .6em .3em;  font-size: 75%;  font-weight: bold;  line-height: 1;  color: #fff;  text-align: center;  white-space: nowrap;  vertical-align: baseline;  border-radius: .25em; \"><strong>&nbsp;&nbsp;人才培訓&nbsp;&nbsp;</strong></span>").append("\r\n");
+				sb.append("									</td>").append("\r\n");		
+			}
+			else if(faq.getCategory().equals("產學媒合服務團")){
+				sb.append("									<td style=\"border:none; width:75px;\">").append("\r\n");
+			    sb.append("									<span style=\"background-color: #5df820; display: inline;  padding: .2em .6em .3em;  font-size: 75%;  font-weight: bold;  line-height: 1;  color: #fff;  text-align: center;  white-space: nowrap;  vertical-align: baseline;  border-radius: .25em; \"><strong>媒合服務團</strong></span>").append("\r\n");
+				sb.append("									</td>").append("\r\n");		
+			}
+			else{
+				
+			}
 			sb.append("									<td align=\"left\" valign=\"top\" style=\"padding-top: 6px\">").append("\r\n");
 			sb.append("										<a href=\""+urlDomainName+"/f2/faq/init?searchCondition.category="+URLEncoder.encode(faq.getCategory(), "UTF-8")+"&openedEpaperId=0\" target=\"_blank\" style=\"font-size: 17px; color: #000; font-family: 微軟正黑體, Arial, Helvetica; line-height: 25px;\">").append("\r\n");
 			sb.append("											<strong>"+faq.getTitle()+"</strong>").append("\r\n");

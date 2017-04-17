@@ -1,6 +1,5 @@
 package iace.action;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +31,7 @@ public class PopularActivityAction extends BaseIaceAction {
 	private Activity activity;
 	private PopularActivity popularActivity;
 	private List<BaseOption> categoryList = Activity.getCategoryList();
-	private String keyForSyncData;
+	private String keyForReflashHot20;
 
 	public PopularActivityAction() {
 		super.setEntityClass(PopularActivity.class);
@@ -52,7 +51,7 @@ public class PopularActivityAction extends BaseIaceAction {
 
 	public String reflashMonthlyPopularActivityWithoutLogin() {
 		try {
-			String decryptKey = AESEncrypter.decrypt("iace@!QAZ", this.keyForSyncData);
+			String decryptKey = AESEncrypter.decrypt("iace@!QAZ", this.keyForReflashHot20);
 			if ("sysvin".equals(decryptKey) == false) {
 				throw new Exception("key值錯誤");
 			} else {
@@ -223,11 +222,11 @@ public class PopularActivityAction extends BaseIaceAction {
 	}
 	
 
-	public String getKeyForSyncData() {
-		return keyForSyncData;
+	public String getKeyForReflashHot20() {
+		return keyForReflashHot20;
 	}
 
-	public void setKeyForSyncData(String keyForSyncData) {
-		this.keyForSyncData = keyForSyncData;
+	public void setKeyForReflashHot20(String keyForReflashHot20) {
+		this.keyForReflashHot20 = keyForReflashHot20;
 	}
 }

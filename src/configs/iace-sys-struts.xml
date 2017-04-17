@@ -140,8 +140,8 @@
 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
 		</action>
 		<action name="reflashMonthlyPopularActivityWithoutLogin" class="iace.action.PopularActivityAction" method="reflashMonthlyPopularActivityWithoutLogin">
-			<interceptor-ref name="iaceSession"/>
-			<interceptor-ref name="iaceBackendlogin"/>
+			<interceptor-ref name="httpRequestLog"/>
+			<interceptor-ref name="defaultStack" />
 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
 		</action>
 <!-- 		<action name="updateHttpRequestLog" class="iace.action.PopularActivityAction" method="updateHttpRequestLog"> -->
