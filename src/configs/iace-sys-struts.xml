@@ -137,6 +137,7 @@
 		<action name="reflashMonthlyPopularActivity" class="iace.action.PopularActivityAction" method="reflashMonthlyPopularActivity">
 			<interceptor-ref name="iaceSession"/>
 			<interceptor-ref name="iaceBackendlogin"/>
+			<interceptor-ref name="defaultStack" />
 			<result name="success">/WEB-INF/jsp/backend/developerFunc/init.jsp</result>
 		</action>
 		<action name="reflashMonthlyPopularActivityWithoutLogin" class="iace.action.PopularActivityAction" method="reflashMonthlyPopularActivityWithoutLogin">

@@ -232,6 +232,7 @@
 			<result name="success">/WEB-INF/jsp/frontend_v2/member/login.jsp</result>
 		</action>
 		<action name="loginSubmit" class="iace.action.MemberAction" method="loginSubmit">
+			<result name="backAfterLogin" type="redirect">${urlBeforeLogin}</result>		
 			<result name="input">/WEB-INF/jsp/frontend_v2/member/login.jsp</result>
 			<result name="success">/WEB-INF/jsp/frontend_v2/member/memberCenter.jsp</result>
 		</action>

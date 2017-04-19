@@ -30,6 +30,7 @@ public class MemberAction extends BaseIaceAction {
 
 	private Long id;
 	private Member member;
+	private String urlBeforeLogin;//用於在登入後 跳回之前的搜尋頁面
 
 	private List<BaseOption> industryList;
 	private List<OptionIndustry> optIndustryList;
@@ -228,8 +229,14 @@ public class MemberAction extends BaseIaceAction {
 			} else {
 				this.member = member;
 				super.session.put(SessionInterceptor.SESSION_KEY_MEMBER, this.member);
-
-				return SUCCESS;
+				this.urlBeforeLogin=(String)session.get("urlBeforeLogin");
+				session.remove("urlBeforeLogin");
+				if(urlBeforeLogin==null){
+					return SUCCESS;
+				}
+				else{
+				    return "backAfterLogin";
+				}
 			}
 		} catch (Exception e) {
 			super.showExceptionToPage(e);
@@ -373,6 +380,14 @@ public class MemberAction extends BaseIaceAction {
 
 	public void setCaptchaCode(String captchaCode) {
 		this.captchaCode = captchaCode;
+	}
+
+	public String getUrlBeforeLogin() {
+		return urlBeforeLogin;
+	}
+
+	public void setUrlBeforeLogin(String urlBeforeLogin) {
+		this.urlBeforeLogin = urlBeforeLogin;
 	}
 
 	
