@@ -24,11 +24,9 @@ public class PopularActivityAction extends BaseIaceAction {
 	private PagedList<Activity> activityPagedList;
 	private List<PopularActivity> popularActivityList;
     private Set<Long> activityIds=new HashSet<Long>(); //byChoose to create jsp
-    private List<Float> prioritys;
 
 	private Long id;//for activity
 	private Float priority;
-	private Activity activity;
 	private PopularActivity popularActivity;
 	private List<BaseOption> categoryList = Activity.getCategoryList();
 	private String keyForReflashHot20;
@@ -139,12 +137,12 @@ public class PopularActivityAction extends BaseIaceAction {
 		}
 	}
 
-	public String updateHttpRequestLog() {
-		// --用來新增DB裡HTTP_REQUEST_LOG的欄位所屬SHOW_DETAIL_CLASS_NAME與SHOW_DETAIL_ID
-		// --以QUERY_STRING或PARAMETERS來找到id 以NAMESPACE和ACTION_NAME找到class
-		this.popularActivityService.reflashShowDetail();		
-		return SUCCESS;
-	}
+//	public String updateHttpRequestLog() {
+//		// --用來新增DB裡HTTP_REQUEST_LOG的欄位所屬SHOW_DETAIL_CLASS_NAME與SHOW_DETAIL_ID
+//		// --以QUERY_STRING或PARAMETERS來找到id 以NAMESPACE和ACTION_NAME找到class
+//		this.popularActivityService.reflashShowDetail();		
+//		return SUCCESS;
+//	}
 	
 	//=========================================================================================================
 	
@@ -163,14 +161,6 @@ public class PopularActivityAction extends BaseIaceAction {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Activity getActivity() {
-		return activity;
-	}
-
-	public void setActivity(Activity activity) {
-		this.activity = activity;
 	}
 
 	public List<Activity> getActivityList() {
@@ -195,14 +185,6 @@ public class PopularActivityAction extends BaseIaceAction {
 
 	public void setActivityIds(Set<Long> activityIds) {
 		this.activityIds = activityIds;
-	}
-		
-	public List<Float> getPrioritys() {
-		return prioritys;
-	}
-
-	public void setPrioritys(List<Float> prioritys) {
-		this.prioritys = prioritys;
 	}
 	
 	public List<PopularActivity> getPopularActivityList() {

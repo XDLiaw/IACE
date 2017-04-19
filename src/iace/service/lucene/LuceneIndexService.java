@@ -97,7 +97,7 @@ public class LuceneIndexService {
 	}
 
 	// rebuild the whole index
-	public void rebuildIndex() throws IOException {
+	public synchronized void rebuildIndex() throws IOException {
 		synchronized (IntegrationIndexer.lock) {
 			Directory indexDirectory = IntegrationIndexer.openDirectory(this.integrationSearchIndexFolder);
 			IndexWriter writer = IntegrationIndexer.createIndexWriter(indexDirectory);

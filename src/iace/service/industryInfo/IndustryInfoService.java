@@ -46,7 +46,7 @@ public class IndustryInfoService extends BaseIaceService<IndustryInfo> {
 		return this.dao.sampleForEpaper();
 	}
 	
-	public void syncData(SysUser user, boolean indexing, SysLog sysLog) throws DocumentException, ParseException, IOException, SQLException, org.apache.lucene.queryparser.classic.ParseException {
+	public synchronized void syncData(SysUser user, boolean indexing, SysLog sysLog) throws DocumentException, ParseException, IOException, SQLException, org.apache.lucene.queryparser.classic.ParseException {
 		LinkIacWSSoapProxy proxy = new LinkIacWSSoapProxy();
 		//新聞雷達
 		{

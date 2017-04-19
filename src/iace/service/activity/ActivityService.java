@@ -41,9 +41,9 @@ public class ActivityService extends BaseIaceService<Activity> {
 		return this.activityDao.sampleForEpaper();
 	}
 	
-	public List<Activity> hot20() {
-		return this.activityDao.popular(20);
-	}
+//	public List<Activity> hot20() {
+//		return this.activityDao.popular(20);
+//	}
 	
 	@Override
 	public Activity get(Long id) {

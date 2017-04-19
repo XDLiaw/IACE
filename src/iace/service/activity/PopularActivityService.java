@@ -6,12 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import core.util.PagedList;
 import iace.dao.activity.IActivityDao;
 import iace.dao.activity.IPopularActivityDao;
 import iace.dao.httpRequestLog.IHttpRequestLogDao;
 import iace.entity.activity.Activity;
-import iace.entity.activity.ActivitySearchModel;
 import iace.entity.activity.PopularActivity;
 import iace.service.BaseIaceService;
 
@@ -28,7 +26,7 @@ public class PopularActivityService extends BaseIaceService<PopularActivity> {
 		this.httpRequestLogDao = httpRequestLogDao;
 	}
 
-	public void reflashMonthlyPopularActivity() {
+	public synchronized void reflashMonthlyPopularActivity() {
 		this.popularActivityDao.deleteAllNotPinned();
 		
 		Date end = new Date();
@@ -95,20 +93,19 @@ public class PopularActivityService extends BaseIaceService<PopularActivity> {
 			popularActivity.setPriority((float)1);
 			popularActivityList.add(popularActivity);
 		}
-		this.popularActivityDao.createAll(popularActivityList);
-		//待新增 
+		this.popularActivityDao.createAll(popularActivityList); 
 		
 	}
 	
-	public void reflashShowDetail(){
-		this.httpRequestLogDao.updateShowDetailClass();
-		this.httpRequestLogDao.updateShowDetailId();
-	}
+//	public void reflashShowDetail(){
+//		this.httpRequestLogDao.updateShowDetailClass();
+//		this.httpRequestLogDao.updateShowDetailId();
+//	}
 	//應該要加在activityService??
-	public PagedList<Activity> activityListToPageList(List<Activity> activityList,ActivitySearchModel arg) {
-		PagedList<Activity> results = new PagedList<Activity>(activityList,activityList.size(), arg.getPageSize(), arg.getPageIndex());
-		return results;
-	} 
+//	public PagedList<Activity> activityListToPageList(List<Activity> activityList,ActivitySearchModel arg) {
+//		PagedList<Activity> results = new PagedList<Activity>(activityList,activityList.size(), arg.getPageSize(), arg.getPageIndex());
+//		return results;
+//	} 
 	
 	public List<PopularActivity> getPinnedPopularActivityList(){
 		return this.popularActivityDao.listAllPinned();

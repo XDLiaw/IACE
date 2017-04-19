@@ -91,5 +91,4 @@ public class Faq extends BaseLinkiacEntity {
 	public static List<BaseOption> getCategoryList() {
 		return categoryList;
 	}
-
 }
