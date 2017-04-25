@@ -108,9 +108,11 @@
 			<result name="input">/WEB-INF/jsp/frontend_v2/industryInfo/index.jsp</result>
 		</action>
 		<action name="showDetail" class="iace.action.IndustryInfoAction" method="showDetail">
+		    <interceptor-ref name="iaceMemberLogin" />
 			<interceptor-ref name="iaceFrontEnd"/>
 			<interceptor-ref name="iaceClickCounter"/>
 			<result name="success" type="redirect">${industryInfo.link}</result>
+			<result name="login">/WEB-INF/jsp/frontend_v2/member/login.jsp</result>
 		</action>
 		<action name="increaseClickNum" class="iace.action.IndustryInfoAction" method="increaseClickNum">
 			<result type="json">

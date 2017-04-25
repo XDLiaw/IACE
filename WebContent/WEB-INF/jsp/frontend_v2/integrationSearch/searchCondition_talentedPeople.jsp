@@ -43,8 +43,8 @@
 	}
 </script>
 <style>
-.selectBox { position: relative; width: 200%;}
-.overSelect { position: absolute; left: 0; right: 13px; top: 0; bottom: 0; }
+.selectBox { position: relative; width:185px;height:34px;}
+.overSelect { position: absolute; width:185px;height:34px; }
 .dropDownBox { width:60%; background-color:rgba(255, 255, 255, 1.0) ; display:none; border:#e6eff5 1px solid; position:absolute; z-index:9999;}
 .dropDownBox label { display: block; font-size: 0.7em; }
 .dropDownBox label:hover { background-color: #1e90ff; color:#ffffff; }
@@ -76,14 +76,12 @@
 				</div>
 			</div>
 			<div class="col-sm-3 col-xs-12">
-				<ul>
-					<div>
 						<div class="selectBox" onclick="toggleDropDownBox()">
-							<select><option>選擇領域</option></select>
+							<select style="width:185px;height:34px;"><option>選擇領域</option></select>
 							<div class="overSelect"></div>
 						</div>
 						<div class="dropDownBox">
-							<ul style="width: 200px; height: 300px; overflow-x:hidden;overflow-y:auto">
+							<ul style="width: 185px; height: 300px; overflow-x:hidden;overflow-y:auto">
 								<s:iterator value="searchCondition.mainDomainList" status="stat">
 									<li class="all"><b><s:property value="name"/></b></li>
 									
@@ -95,9 +93,7 @@
 									</s:iterator>
 								</s:iterator>
 							</ul>
-						</div>
-					</div>				
-			</ul>
+						</div>			
 			</div>
 			<div class="col-sm-2 col-xs-12">
 				<s:textfield placeholder="合作專長" name="searchCondition.talentedPeopleSearchModel.specialty" maxlength="1000" />
