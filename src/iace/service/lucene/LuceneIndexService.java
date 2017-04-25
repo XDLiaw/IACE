@@ -57,7 +57,7 @@ public class LuceneIndexService {
 	private IPatentDao patentDao;
 	private ITalentedPeopleDao talentedPeopleDao;
 	private ICoopExDao coopExDao;
-	private ILiteratureDao literautureDao;
+	private ILiteratureDao literatureDao;
 	private IIncubationCenterDao incubationCenterDao;
 	private IActivityDao activityDao;
 	private IIndustryInfoDao industryInfoDao;
@@ -71,7 +71,7 @@ public class LuceneIndexService {
 			IPatentDao patentDao, 
 			ITalentedPeopleDao talentedPeopleDao,
 			ICoopExDao coopExDao,
-			ILiteratureDao literautureDao,
+			ILiteratureDao literatureDao,
 			IIncubationCenterDao incubationCenterDao,
 			IActivityDao activityDao,
 			IIndustryInfoDao industryInfoDao,
@@ -81,7 +81,7 @@ public class LuceneIndexService {
 		this.patentDao = patentDao;
 		this.talentedPeopleDao = talentedPeopleDao;
 		this.coopExDao = coopExDao;
-		this.literautureDao = literautureDao;
+		this.literatureDao = literatureDao;
 		this.incubationCenterDao = incubationCenterDao;
 		this.activityDao = activityDao;
 		this.industryInfoDao = industryInfoDao;
@@ -199,11 +199,11 @@ public class LuceneIndexService {
 		{
 			LiteratureSearchModel arg = new LiteratureSearchModel();
 			arg.setCategory("文獻");
-			long totalRecordCount = this.literautureDao.queryTotalRecordsCount(arg);
+			long totalRecordCount = this.literatureDao.queryTotalRecordsCount(arg);
 			int pageCount = (int) Math.ceil(totalRecordCount / (double) arg.getPageSize());
 			for (int i = 0; i < pageCount; i++) {
 				arg.setPageIndex(i);
-				PagedList<Literature> pagedList = this.literautureDao.searchBy(arg);
+				PagedList<Literature> pagedList = this.literatureDao.searchBy(arg);
 				for (Literature entity : pagedList.getList()) {
 					IntegrationIndexer.addDoc(writer, entity.getId(), entity.getClass(), entity.toLunceneContent());
 				}
@@ -212,11 +212,11 @@ public class LuceneIndexService {
 		{
 			LiteratureSearchModel arg = new LiteratureSearchModel();
 			arg.setCategory("法規政策");
-			long totalRecordCount = this.literautureDao.queryTotalRecordsCount(arg);
+			long totalRecordCount = this.literatureDao.queryTotalRecordsCount(arg);
 			int pageCount = (int) Math.ceil(totalRecordCount / (double) arg.getPageSize());
 			for (int i = 0; i < pageCount; i++) {
 				arg.setPageIndex(i);
-				PagedList<Literature> pagedList = this.literautureDao.searchBy(arg);
+				PagedList<Literature> pagedList = this.literatureDao.searchBy(arg);
 				for (Literature entity : pagedList.getList()) {
 					IntegrationIndexer.addDoc(writer, entity.getId(), entity.getClass(), entity.toLunceneContent());
 				}
@@ -277,48 +277,137 @@ public class LuceneIndexService {
 	}	
 
 	public PagedList<IntegrationSearchResult> integrationSearch(IntegrationSearchModel arg) throws IOException, ParseException {
+		
 		Directory indexDirectory = IntegrationIndexer.openDirectory(this.integrationSearchIndexFolder);
 		IndexReader reader = IntegrationIndexer.createIndexReader(indexDirectory);
 		try {
-			PagedList<Document> docs = IntegrationIndexer.searchBy(reader, arg);
 			
-			List<IntegrationSearchResult> list = new ArrayList<IntegrationSearchResult>();
-			for (Document doc : docs.getList()) {
-				String className = doc.get(IntegrationIndexer.FIELD_CLASS_NAME);
-				long id = Long.valueOf(doc.get(IntegrationIndexer.FIELD_ID));
-				log.debug(className + "\t" + id);
-				
-				IntegrationSearchResult r = new IntegrationSearchResult();
-				r.setType(className);
-				if (ResearchPlan.class.getName().equals(className)) {
-					r.setResearchPlan(this.researchPlanDao.get(id));
-				} else if (Technology.class.getName().equals(className)) {
-					r.setTechnology(this.technologyDao.get(id));
-				} else if (Patent.class.getName().equals(className)) {
-					r.setPatent(this.patentDao.get(id));
-				} else if (TalentedPeople.class.getName().equals(className)) {
-					r.setTalentedPeople(this.talentedPeopleDao.get(id));
-				} else if (CoopEx.class.getName().equals(className)) {
-					r.setCoopEx(this.coopExDao.get(id));
-				} else if (Literature.class.getName().equals(className)) {
-					r.setLiterature(this.literautureDao.get(id));
-				} else if (IncubationCenter.class.getName().equals(className)) {
-					r.setIncubationCenter(this.incubationCenterDao.get(id));
-				} else if (Activity.class.getName().equals(className)) {
-					r.setActivity(this.activityDao.get(id));
-				} else if (IndustryInfo.class.getName().equals(className)) {
-					r.setIndustryInfo(this.industryInfoDao.get(id));
-				} else if (News.class.getName().equals(className)) {
-					r.setNews(this.newsDao.get(id));
-				} else {
-					throw new IllegalArgumentException("No such type!");
+			//以下用searchModel去找 元方法"全部""其他"=========================================
+			if(arg.getClassName().equals(ResearchPlan.class.getName())){
+				arg.getResearchPlanSearchModel().setPageSize(arg.getPageSize());
+				arg.getResearchPlanSearchModel().setPageIndex(arg.getPageIndex());
+				PagedList<ResearchPlan> ResearchPlanList=this.researchPlanDao.searchBy(arg.getResearchPlanSearchModel());
+				List<IntegrationSearchResult> IntegrationSearchResultList = new ArrayList<IntegrationSearchResult>();
+				for(ResearchPlan rp:ResearchPlanList.getList()){
+					IntegrationSearchResult isr = new IntegrationSearchResult();
+					rp=this.researchPlanDao.get(rp.getId());//getTechnologies lazy
+					isr.setType(arg.getClassName());
+					isr.setResearchPlan(rp);
+					IntegrationSearchResultList.add(isr);
 				}
-				list.add(r);
+				PagedList<IntegrationSearchResult> resultList = new PagedList<IntegrationSearchResult>(IntegrationSearchResultList, ResearchPlanList.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
+			}
+			else if(arg.getClassName().equals(Patent.class.getName())){
+				arg.getPatentSearchModel().setPageSize(arg.getPageSize());
+				arg.getPatentSearchModel().setPageIndex(arg.getPageIndex());
+				PagedList<Patent> PatentList=this.patentDao.searchBy(arg.getPatentSearchModel());
+				List<IntegrationSearchResult> IntegrationSearchResultList = new ArrayList<IntegrationSearchResult>();
+				for(Patent p:PatentList.getList()){
+					IntegrationSearchResult isr = new IntegrationSearchResult();
+					isr.setType(arg.getClassName());
+					isr.setPatent(p);
+					IntegrationSearchResultList.add(isr);
+				}
+				PagedList<IntegrationSearchResult> resultList = new PagedList<IntegrationSearchResult>(IntegrationSearchResultList, PatentList.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
+			}
+			else if(arg.getClassName().equals(TalentedPeople.class.getName())){
+				arg.getTalentedPeopleSearchModel().setPageSize(arg.getPageSize());
+				arg.getTalentedPeopleSearchModel().setPageIndex(arg.getPageIndex());
+				PagedList<TalentedPeople> TalentedPeopleList=this.talentedPeopleDao.searchBy(arg.getTalentedPeopleSearchModel());
+				List<IntegrationSearchResult> IntegrationSearchResultList = new ArrayList<IntegrationSearchResult>();
+				for(TalentedPeople p:TalentedPeopleList.getList()){
+					IntegrationSearchResult isr = new IntegrationSearchResult();
+					isr.setType(arg.getClassName());
+					isr.setTalentedPeople(p);
+					IntegrationSearchResultList.add(isr);
+				}
+				PagedList<IntegrationSearchResult> resultList = new PagedList<IntegrationSearchResult>(IntegrationSearchResultList, TalentedPeopleList.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
+			}
+			else if(arg.getClassName().equals(CoopEx.class.getName())){
+				arg.getCoopExSearchModel().setPageSize(arg.getPageSize());
+				arg.getCoopExSearchModel().setPageIndex(arg.getPageIndex());
+				PagedList<CoopEx> CoopExList=this.coopExDao.searchBy(arg.getCoopExSearchModel());
+				List<IntegrationSearchResult> IntegrationSearchResultList = new ArrayList<IntegrationSearchResult>();
+				for(CoopEx p:CoopExList.getList()){
+					IntegrationSearchResult isr = new IntegrationSearchResult();
+					isr.setType(arg.getClassName());
+					isr.setCoopEx(p);
+					IntegrationSearchResultList.add(isr);
+				}
+				PagedList<IntegrationSearchResult> resultList = new PagedList<IntegrationSearchResult>(IntegrationSearchResultList, CoopExList.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
+			}
+			else if(arg.getClassName().equals(Literature.class.getName())){
+				arg.getLiteratureSearchModel().setPageSize(arg.getPageSize());
+				arg.getLiteratureSearchModel().setPageIndex(arg.getPageIndex());
+				PagedList<Literature> LiteratureList=this.literatureDao.searchBy(arg.getLiteratureSearchModel());
+				List<IntegrationSearchResult> IntegrationSearchResultList = new ArrayList<IntegrationSearchResult>();
+				for(Literature p:LiteratureList.getList()){
+					IntegrationSearchResult isr = new IntegrationSearchResult();
+					isr.setType(arg.getClassName());
+					isr.setLiterature(p);
+					IntegrationSearchResultList.add(isr);
+				}
+				PagedList<IntegrationSearchResult> resultList = new PagedList<IntegrationSearchResult>(IntegrationSearchResultList, LiteratureList.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
+			}
+			else if(arg.getClassName().equals(IncubationCenter.class.getName())){
+				arg.getIncubationCenterSearchModel().setPageSize(arg.getPageSize());
+				arg.getIncubationCenterSearchModel().setPageIndex(arg.getPageIndex());
+				PagedList<IncubationCenter> IncubationCenterList=this.incubationCenterDao.searchBy(arg.getIncubationCenterSearchModel());
+				List<IntegrationSearchResult> IntegrationSearchResultList = new ArrayList<IntegrationSearchResult>();
+				for(IncubationCenter p:IncubationCenterList.getList()){
+					IntegrationSearchResult isr = new IntegrationSearchResult();
+					isr.setType(arg.getClassName());
+					isr.setIncubationCenter(p);
+					IntegrationSearchResultList.add(isr);
+				}
+				PagedList<IntegrationSearchResult> resultList = new PagedList<IntegrationSearchResult>(IntegrationSearchResultList, IncubationCenterList.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
+			}
+			else {
+				PagedList<Document> docs = IntegrationIndexer.searchBy(reader, arg);
+				List<IntegrationSearchResult> list = new ArrayList<IntegrationSearchResult>();
+				for (Document doc : docs.getList()) {
+					String className = doc.get(IntegrationIndexer.FIELD_CLASS_NAME);
+					long id = Long.valueOf(doc.get(IntegrationIndexer.FIELD_ID));
+					log.debug(className + "\t" + id);
+				
+					IntegrationSearchResult r = new IntegrationSearchResult();
+					r.setType(className);
+					if (ResearchPlan.class.getName().equals(className)) {
+						r.setResearchPlan(this.researchPlanDao.get(id));				
+					} else if (Technology.class.getName().equals(className)) {
+						r.setTechnology(this.technologyDao.get(id));
+					} else if (Patent.class.getName().equals(className)) {
+						r.setPatent(this.patentDao.get(id));
+					} else if (TalentedPeople.class.getName().equals(className)) {
+						r.setTalentedPeople(this.talentedPeopleDao.get(id));
+					} else if (CoopEx.class.getName().equals(className)) {
+						r.setCoopEx(this.coopExDao.get(id));
+					} else if (Literature.class.getName().equals(className)) {
+						r.setLiterature(this.literatureDao.get(id));
+					} else if (IncubationCenter.class.getName().equals(className)) {
+						r.setIncubationCenter(this.incubationCenterDao.get(id));
+					} else if (Activity.class.getName().equals(className)) {
+						r.setActivity(this.activityDao.get(id));
+					} else if (IndustryInfo.class.getName().equals(className)) {
+						r.setIndustryInfo(this.industryInfoDao.get(id));
+					} else if (News.class.getName().equals(className)) {
+						r.setNews(this.newsDao.get(id));
+					} else {
+						throw new IllegalArgumentException("No such type!");
+					}
+					list.add(r);
+				}	
+			
+				PagedList<IntegrationSearchResult> resultList =	new PagedList<IntegrationSearchResult>(list, docs.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
+				return resultList;
 			}
 			
-			PagedList<IntegrationSearchResult> resultList = 
-					new PagedList<IntegrationSearchResult>(list, docs.getTotatlItemCount(), arg.getPageSize(), arg.getPageIndex());
-			return resultList;
 		} catch (Exception e) {
 			throw e;
 		} finally {

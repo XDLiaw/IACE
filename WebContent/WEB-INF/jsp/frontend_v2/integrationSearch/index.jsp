@@ -7,7 +7,7 @@
 	$(document).ready(function() {
 	 	// 注意: 在此頁面的重置按鈕記得要加上id
 		$("#btn-reset").click(function(){
-			$("input[type=text]").val("");
+			$("input[type=text]").val("");// 因為會把 pc_menu 的input text className清空 造成難以判斷 所以把pc_menu裡的改成hidden
 			$("select").prop('selectedIndex', 0);
 		});
 	
@@ -18,6 +18,36 @@
 		});
 		$(".list-item a").click(function(e) {
 			e.stopPropagation(); //避免將事件傳遞給parent element導致觸發兩次連結的點擊事件
+		});
+		$(".pc_menu .classNameBtn").click(function(){
+			if(($(this).find(".classNameValue").val()=="iace.entity.researchPlan.ResearchPlan")){
+				$(".search-active").removeClass("search-active").hide();
+				$("#searchCondition_researchPlan").addClass("search-active").show();
+			}
+			else if($(this).find(".classNameValue").val()=="iace.entity.patent.Patent"){
+				$(".search-active").removeClass("search-active").hide();
+				$("#searchCondition_patent").addClass("search-active").show();
+			}
+			else if($(this).find(".classNameValue").val()=="iace.entity.talentedPeople.TalentedPeople"){
+				$(".search-active").removeClass("search-active").hide();
+				$("#searchCondition_talentedPeople").addClass("search-active").show();
+			}
+			else if($(this).find(".classNameValue").val()=="iace.entity.coopExample.CoopEx"){
+				$(".search-active").removeClass("search-active").hide();
+				$("#searchCondition_coopEx").addClass("search-active").show();
+			}
+			else if($(this).find(".classNameValue").val()=="iace.entity.literature.Literature"){
+				$(".search-active").removeClass("search-active").hide();
+				$("#searchCondition_literature").addClass("search-active").show();
+			}
+			else if($(this).find(".classNameValue").val()=="iace.entity.incubationCenter.IncubationCenter"){
+				$(".search-active").removeClass("search-active").hide();
+				$("#searchCondition_incubationCenter").addClass("search-active").show();
+			}
+			else {
+				 $(".search-active").removeClass("search-active").hide();
+				 $("#searchCondition_base").addClass("search-active").show();
+			}
 		});
 	});
 </script>
@@ -60,21 +90,31 @@
 				<s:include value="./pc_menu.jsp" />
 			
 				<!-- 搜尋輸入區塊 -->
-				<div class="col-sm-12 col-xs-12">
-					<div class="well">
-						<form class="form-group">
-							<div class="row">
-								<div class="col-sm-8 col-xs-12">
-									<s:textfield name="searchCondition.searchText" class="form-control" placeholder="搜尋" style="font-size:18px"/>
-								</div>
-								<div class="col-sm-4 col-xs-12">
-									<button type="submit" class="btn btn-primary" id="btn-search"><i class="fa fa-search-plus right5" aria-hidden="true"></i><span style="font-size:18px">搜尋</span></button>&nbsp;
-									<button type="button" class="btn btn-default" id="btn-reset"><span style="font-size:18px">清除</span></button>
-								</div>
-							</div>
-						</form>
-					</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_base">
+					<s:include value="./searchCondition_base.jsp" />
 				</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_researchPlan">
+					<s:include value="./searchCondition_researchPlan.jsp" />
+				</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_patent">
+					<s:include value="./searchCondition_patent.jsp" />
+				</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_talentedPeople">
+					<s:include value="./searchCondition_talentedPeople.jsp" />
+				</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_coopEx">
+					<s:include value="./searchCondition_coopEx.jsp" />
+				</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_literature">
+					<s:include value="./searchCondition_literature.jsp" />
+				</div>
+				<div class="col-sm-12 col-xs-12" style="display:none" id="searchCondition_incubationCenter">
+					<s:include value="./searchCondition_incubationCenter.jsp" />
+				</div>
+				<div class="col-sm-4 col-xs-12">
+					<button type="submit" class="btn btn-primary" id="btn-search"><i class="fa fa-search-plus right5" aria-hidden="true"></i><span style="font-size:18px">搜尋</span></button>&nbsp;
+					<button type="button" class="btn btn-default" id="btn-reset"><span style="font-size:18px">清除</span></button>
+				</div>				
 			</div>
 		</div>
 

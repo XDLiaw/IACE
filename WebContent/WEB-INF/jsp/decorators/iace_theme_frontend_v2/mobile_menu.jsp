@@ -81,7 +81,7 @@
 						學界研發成果<span class="caret"></span>
 					</a> 
 					<ul class="dropdown-menu" style="margin-left:20px; padding-left:10px;">
-						<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.Technology"/>" class="menu_link_mobile">學研成果</a></li>
+						<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.ResearchPlan"/>" class="menu_link_mobile">學研成果</a></li>
 						<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.patent.Patent"/>" class="menu_link_mobile">學界專利</a></li>
 						<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.talentedPeople.TalentedPeople"/>" class="menu_link_mobile">產學人才</a></li>
 					</ul>

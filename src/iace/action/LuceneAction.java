@@ -34,8 +34,10 @@ public class LuceneAction extends BaseIaceAction {
 	private ResearchPlanService researchPlanService = ServiceFactory.getResearchPlanService();
 	
 	private IntegrationSearchModel searchCondition = new IntegrationSearchModel();
+
 	private PagedList<IntegrationSearchResult> pagedList;
 	private List<ResearchPlanManagerSearchResult> rpManagerList;
+	
 	private String rpManagerJsonString;
 	
 	private boolean svgDisplayStatus;
@@ -90,7 +92,10 @@ public class LuceneAction extends BaseIaceAction {
 	}
 	
 	public void validateIntegrationSearch() {
-		super.validateNotBlank(this.searchCondition.getSearchText(), "searchCondition.searchText");
+		//若以"全部""其他"查詢文字欄位不可為空
+		if((this.searchCondition.getClassName().equals(""))||(this.searchCondition.getClassName().equals("OTHER"))){
+			super.validateNotBlank(this.searchCondition.getSearchText(), "searchCondition.searchText");
+		}
 	}
 	
 	public String integrationSearch() {
@@ -141,7 +146,7 @@ public class LuceneAction extends BaseIaceAction {
 		JsonArray links = new JsonArray();
 		{
 			JsonObject node = new JsonObject();
-			String displayText = this.searchCondition.getSearchText();
+			String displayText = this.searchCondition.getResearchPlanSearchModel().getKeyword();
 			node.addProperty("displayText", displayText);
 			node.addProperty("width", displayText.length()*13+15);
 			node.addProperty("height", 23);
@@ -225,6 +230,5 @@ public class LuceneAction extends BaseIaceAction {
 	public void setKeyForRebuildIndex(String keyForRebuildIndex) {
 		this.keyForRebuildIndex = keyForRebuildIndex;
 	}
-	
-	
+
 }

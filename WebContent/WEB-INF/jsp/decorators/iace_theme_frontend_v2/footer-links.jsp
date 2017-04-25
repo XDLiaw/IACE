@@ -8,7 +8,7 @@
 			<div class="col-sm-2 col-xs-6 text-center">
 				<div style="margin: 12px 0;">
 					<img src="<s:url value="/images/frontend-v2/footer_icon_01.png"/>" alt="" height="55" />
-					<a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.Technology"/>" class="list_link_03">
+					<a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.ResearchPlan"/>" class="list_link_03">
 					找技術
 					</a>
 				</div>

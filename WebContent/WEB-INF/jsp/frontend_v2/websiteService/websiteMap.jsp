@@ -93,7 +93,7 @@
 						<div class="col-sm-3 col-xs-12 bottom20">
 							<table>
 								<tr><th>學界研發成果</th></tr>
-								<tr><td><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.Technology"/>">學研成果</a></td></tr>
+								<tr><td><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.ResearchPlan"/>">學研成果</a></td></tr>
 								<tr><td><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.patent.Patent"/>">學界專利</a></td></tr>
 								<tr><td><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.talentedPeople.TalentedPeople"/>">產學人才</a></td></tr>
 							</table>

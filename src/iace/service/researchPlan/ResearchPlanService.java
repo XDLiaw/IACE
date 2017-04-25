@@ -78,7 +78,7 @@ public class ResearchPlanService extends BaseIaceService<ResearchPlan> {
 		Directory indexDirectory = ResearchPlanIndexer.openDirectory(this.indexFolder);
 		IndexReader reader = ResearchPlanIndexer.createIndexReader(indexDirectory);
 		try {
-			List<Document> docList = ResearchPlanIndexer.search(reader, arg.getSearchText());
+			List<Document> docList = ResearchPlanIndexer.search(reader, arg.getResearchPlanSearchModel().getKeyword());
 			HashMap<String, ResearchPlanManagerSearchResult> map = new HashMap<String, ResearchPlanManagerSearchResult>();
 			for (Document doc : docList) {
 				long id = Long.valueOf(doc.get(ResearchPlanIndexer.FIELD_ID));

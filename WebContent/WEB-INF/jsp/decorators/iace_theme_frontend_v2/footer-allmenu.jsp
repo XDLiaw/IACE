@@ -47,7 +47,7 @@
 			<div class="col-sm-2 col-xs-6">
 				<div class="small_title_02">學界研發成果</div>
 				<ul class="small_title_02">
-					<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.Technology"/>" class="list_link_04">學研成果</a></li>
+					<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.researchPlan.ResearchPlan"/>" class="list_link_04">學研成果</a></li>
 					<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.patent.Patent"/>" class="list_link_04">學界專利</a></li>
 					<li><a href="<s:url value="/f2/integrationSearch/init?searchCondition.className=iace.entity.talentedPeople.TalentedPeople"/>" class="list_link_04">產學人才</a></li>
 				</ul>
