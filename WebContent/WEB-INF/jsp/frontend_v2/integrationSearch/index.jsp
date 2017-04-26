@@ -4,10 +4,13 @@
 <html>
 <head>
 <script type="text/javascript">
+	var count=0;
 	$(document).ready(function() {
 	 	// 注意: 在此頁面的重置按鈕記得要加上id
 		$("#btn-reset").click(function(){
 			$("input[type=text]").val("");// 因為會把 pc_menu 的input text className清空 造成難以判斷 所以把pc_menu裡的改成hidden
+			$("select").prop('selectedIndex', 0);
+			$("input[type=checkbox]").prop("checked", false);
 			$("select").prop('selectedIndex', 0);
 		});
 	
@@ -20,32 +23,33 @@
 			e.stopPropagation(); //避免將事件傳遞給parent element導致觸發兩次連結的點擊事件
 		});
 		$(".pc_menu .classNameBtn").click(function(){
+			count=count+1;
+			if(count>1){
+				//防止案分頁時 換了搜索模組 可能會出錯 但本身刷新分頁時就會改變一次 所以先給一次 submit後自動歸零
+				$("#div-network-diagram").hide();
+				$(".row").find(".pagination").hide();
+				$("div.list-item").hide();
+			}
+			$(".search-active").removeClass("search-active").hide();
 			if(($(this).find(".classNameValue").val()=="iace.entity.researchPlan.ResearchPlan")){
-				$(".search-active").removeClass("search-active").hide();
 				$("#searchCondition_researchPlan").addClass("search-active").show();
 			}
 			else if($(this).find(".classNameValue").val()=="iace.entity.patent.Patent"){
-				$(".search-active").removeClass("search-active").hide();
 				$("#searchCondition_patent").addClass("search-active").show();
 			}
 			else if($(this).find(".classNameValue").val()=="iace.entity.talentedPeople.TalentedPeople"){
-				$(".search-active").removeClass("search-active").hide();
 				$("#searchCondition_talentedPeople").addClass("search-active").show();
 			}
 			else if($(this).find(".classNameValue").val()=="iace.entity.coopExample.CoopEx"){
-				$(".search-active").removeClass("search-active").hide();
 				$("#searchCondition_coopEx").addClass("search-active").show();
 			}
 			else if($(this).find(".classNameValue").val()=="iace.entity.literature.Literature"){
-				$(".search-active").removeClass("search-active").hide();
 				$("#searchCondition_literature").addClass("search-active").show();
 			}
 			else if($(this).find(".classNameValue").val()=="iace.entity.incubationCenter.IncubationCenter"){
-				$(".search-active").removeClass("search-active").hide();
 				$("#searchCondition_incubationCenter").addClass("search-active").show();
 			}
 			else {
-				 $(".search-active").removeClass("search-active").hide();
 				 $("#searchCondition_base").addClass("search-active").show();
 			}
 		});

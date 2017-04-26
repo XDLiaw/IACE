@@ -92,6 +92,10 @@ public class LuceneAction extends BaseIaceAction {
 	}
 	
 	public void validateIntegrationSearch() {
+		//  需要給className 防止為空 例如直接輸入index網址 最上面的浮動選單搜尋 都不會設定className
+		if(this.searchCondition.getClassName()==null){
+			this.searchCondition.setClassName("");
+		}
 		//若以"全部""其他"查詢文字欄位不可為空
 		if((this.searchCondition.getClassName().equals(""))||(this.searchCondition.getClassName().equals("OTHER"))){
 			super.validateNotBlank(this.searchCondition.getSearchText(), "searchCondition.searchText");

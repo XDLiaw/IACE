@@ -27,7 +27,7 @@ public class MemberLoginInterceptor extends AbstractInterceptor {
 		Member member = (Member) sessionMap.get(SessionInterceptor.SESSION_KEY_MEMBER);
 		if (member == null) {
 			ActionSupport action = (ActionSupport) arg0.getAction();
-			action.addActionMessage("您尚未登入!");
+			action.addActionMessage("您尚未登入會員!");
 			 // 得到HttpServletRequest
             HttpServletRequest req = ServletActionContext.getRequest();
             // 得到完整的url
